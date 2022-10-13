@@ -2,7 +2,7 @@
 example of a text animation with Javascript modules.
 
 
-view online: http://localhost:8080/github/modules/animations/textAnimation/
+view online: https://siteanimator.nl/github/animations/textAnimation/minimized.php
 
 This is an example application in Javascript.  
 The application contains several modules that create a text animation.  
