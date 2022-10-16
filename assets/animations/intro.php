@@ -6,7 +6,7 @@
         file:       intro.php
         function:   containe the animations for the text animation.
 
-        Last revision: 09-10-2022
+        Last revision: 16-10-2022
  
 */  
 ?>
@@ -14,18 +14,20 @@
 // add repeat
     textAnimation.repeatAnimations = {
         'repeat'    :   'forever',
-        'from'      :   0
+        'from'      :   'showT1'
     };
 // add repeat
-    
-    textAnimation.animations = [
+
+// add animations
+textAnimation.animations = [
+
 <?php
 
+
+
+
 require_once './assets/animations/parts/showText.php';
-
-
-
-
+ 
 // add separator
 echo ',';
 
@@ -35,6 +37,16 @@ require_once './assets/animations/parts/playText.php';
 echo ',';
 
 require_once './assets/animations/parts/hideText.php';
+
+/*
+  
+  
+ 
+require_once './assets/animations/parts/sayHello.php';
+
+// add separator
+echo ',';
+
 
 // add separator
 echo ',';
@@ -52,6 +64,9 @@ echo ',';
 
 require_once './assets/animations/parts/hideAnimationText.php';
 
-
+*/
 ?>
-    ];
+
+];
+// add animations
+

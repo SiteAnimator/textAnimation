@@ -17,7 +17,7 @@
     'elementOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '36px',
-        'padding'           :   '8px 4px 4px 4px',
+        'padding'           :   '14px 12px 12px 12px',
         'borderRadius'      :   '50%',
         'backgroundColor'   :   'orange'
     },
@@ -30,19 +30,29 @@
         'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35, 
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
+        },                                       
+        'top' : {                        
+            'path'          :   '0' 
+        },                                       
+        'left' : {                        
+            'path'          :   '0' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49' 
-        }                                       
+            'path'          :   '12' 
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
+        },                                       
+        'alignLeft' : {                         
+            'path'          :   '0' 
+        }                                      
     }                                           
 },                                               
 {                                               
@@ -51,7 +61,7 @@
     'elementOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '36px',
-        'padding'           :   '1px 4px 5px 4px',
+        'padding'           :   '6px 12px 12px 12px',
         'borderRadius'      :   '50%',
         'backgroundColor'   :   'orange'
     },
@@ -64,19 +74,28 @@
         'show'              :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35, 
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
+        },                                       
+        'top' : {                        
+            'path'          :   '0' 
+        },                                       
+        'left' : {                        
+            'path'          :   '48' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   27
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
+        },                                       
+        'alignLeft' : {                         
+            'path'          :   '0' 
         }                                       
     }                                           
 },                                               
@@ -86,7 +105,7 @@
     'elementOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '36px',
-        'padding'           :   '0px 6px 6px 6px',
+        'padding'           :   '6px 12px 12px 12px',
         'borderRadius'      :   '50%',
         'backgroundColor'   :   'orange'
     },
@@ -99,19 +118,28 @@
         'show'              :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35, 
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
         },                                      
+        'top' : {                        
+            'path'          :   '0' 
+        },                                       
+        'left' : {                 
+            'path'          :   '90' 
+        },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   60 
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
+        },                                       
+        'alignLeft' : {                         
+            'path'          :   '0' 
         }                                       
     }                                           
 },                                               
@@ -121,7 +149,7 @@
     'elementOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '36px',
-        'padding'           :   '0px 6px 6px 6px',
+        'padding'           :   '6px 12px 12px 12px',
         'borderRadius'      :   '50%',
         'backgroundColor'   :   'orange'
     },
@@ -133,19 +161,25 @@
         'show'              :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35, 
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
         },                                      
+        'top' : {                        
+            'path'          :   '0' 
+        },                                       
+        'left' : {                
+            'path'          :   '134' 
+        },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   83 
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 }                                               

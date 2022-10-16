@@ -26,7 +26,6 @@
             'path'          :   '1,0' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '49,-10' 
         },                                      
     },                                           
@@ -50,11 +49,6 @@
             'position'      :   'bottom',       
             'path'          :   '49,-10' 
         },                                      
-        'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   10
-        }                                       
     },                                           
     'removeElement'         : true,                                          
 },
@@ -73,14 +67,8 @@
             'path'          :   '1,0' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '49,-10' 
         },                                      
-        'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   22 
-        }                                       
     },                                           
     'removeElement'         : true,                                          
 },
@@ -98,14 +86,8 @@
             'path'          :   '1,0' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '49,-10' 
         },                                      
-        'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   30 
-        }                                       
     },                                           
     'removeElement'         : true,                                          
 }                                               

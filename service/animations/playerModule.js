@@ -28,9 +28,11 @@
 
         // MEMBERS:
         var self = this;                                    // object
-        self.debugOn = false;                               // boolean
+        self.debugOn = true;                               // boolean
         self.MODULE = 'AnimationsPlayerModule';             // string
-        self.maximumFrameSpeed = 40;                        // integer
+        self.maximumFrameSpeed = textAnimation.options.frameRate ?
+                                 textAnimation.options.frameRate :
+                                 40;                        // integer
         self.minimumDelay = 1000 / self.maximumFrameSpeed;  // float
         self.animationFrameRequestId = null;                // window.requestAnimationFrame id / null
         self.timer = null;                                  // timer object / null
@@ -196,24 +198,15 @@
 
                 // remember stopped
                 self.playing = false;
-                
-                // reset animated at
-                self.animatedAt = null;
-                
+                                
                 // done
                 return;
                 
             }
             // no more animations
             
-            // animated at ! set
-            if( self.animatedAt === null ){
-                
-                // get date
-                self.animatedAt = new Date();
-                
-            }
-            // animated at ! set
+            // get date
+            self.animatedAt = Date.now();
 
             // wait for frame
             self.animationFrameRequestId = window.requestAnimationFrame( self.delay );
@@ -233,13 +226,13 @@
             // request id exists
 
             // get date
-            let date = new Date();
+            let date = Date.now();
                 
             // create expired
             let expired = 0;
                         
             // get expired
-            expired = Math.abs( date.getTime() - self.animatedAt.getTime() );
+            expired = Math.abs( date - self.animatedAt );
 
             // calculate delay
             let delay = Math.max( self.minimumDelay - expired, 0 );

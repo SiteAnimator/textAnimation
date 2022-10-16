@@ -19,7 +19,7 @@
         'at'                :   0,              
         'playNext'          :   true,              
     },                                          
-    'startDelay'            :   50,             
+    'startDelay'            :   10,             
     'duration'              :   70, 
     'items' : {                                 
         'opacity' : {                           

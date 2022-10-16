@@ -14,3 +14,9 @@
 <?php
 
 require_once './assets/animations/parts/blinkTextAnimation.php';
+
+// add separator
+echo ',';
+
+
+require_once './assets/animations/parts/rotateTextAnimation.php';

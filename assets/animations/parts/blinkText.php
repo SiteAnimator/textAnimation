@@ -19,8 +19,8 @@
         'at'                :   0,              
         'playNext'          :   true,              
     },                                          
-    'startDelay'            :   50,             
-    'duration'              :   40, 
+    'startDelay'            :   10,             
+    'duration'              :   25,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '1,0,1,0,1' 
@@ -36,7 +36,7 @@
         'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   40, 
+    'duration'              :   25,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '1,0,1,0,1' 
@@ -52,7 +52,7 @@
         'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   40, 
+    'duration'              :   25,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '1,0,1,0,1' 
@@ -67,7 +67,7 @@
         'at'                :   0,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   40, 
+    'duration'              :   25,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '1,0,1,0,1' 

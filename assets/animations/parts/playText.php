@@ -14,3 +14,9 @@
 <?php
 
 require_once './assets/animations/parts/blinkText.php';
+
+// add separator
+echo ',';
+
+require_once './assets/animations/parts/scaleText.php';
+

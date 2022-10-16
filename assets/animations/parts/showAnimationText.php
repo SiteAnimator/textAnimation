@@ -27,18 +27,19 @@
         'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49' 
+            'path'          :   '12' 
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 },                                               
@@ -58,19 +59,25 @@
         'show'              :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
+        },                                       
+        'top' : {                        
+            'path'          :   '0' 
+        },                                       
+        'left' : {                        
+            'path'          :   '24' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   16
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 },                                               
@@ -90,19 +97,22 @@
         'show'              :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
+        },                                       
+        'left' : {                        
+            'path'          :   '42' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   25
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 },                                               
@@ -122,19 +132,25 @@
         'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
+        },                                       
+        'top' : {                        
+            'path'          :   '0' 
+        },                                       
+        'left' : {                        
+            'path'          :   '52' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   52 
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 },                                               
@@ -154,19 +170,22 @@
         'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
+        },                                       
+        'left' : {                        
+            'path'          :   '82' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   67 
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 },                                               
@@ -186,19 +205,22 @@
         'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
+        },                                       
+        'left' : {                        
+            'path'          :   '99' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   77 
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 },                                               
@@ -218,19 +240,22 @@
         'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
+        },                                       
+        'left' : {                        
+            'path'          :   '110' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   86 
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 },                                               
@@ -250,19 +275,22 @@
         'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
         },                                      
+        'left' : {                        
+            'path'          :   '120' 
+        },                                       
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   103 
+            'path'          :   '12',
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 },                                               
@@ -281,19 +309,22 @@
         'show'              :   true,              
     },                                          
     'startDelay'            :   1,             
-    'duration'              :   70, 
+    'duration'              :   35,  
     'items' : {                                 
         'opacity' : {                           
             'path'          :   '0,1' 
         },                                      
+        'left' : {                        
+            'path'          :   '138' 
+        },                                       
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '110,49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49',
-            'offset'        :   119
+            'path'          :   '12'
+        },                                       
+        'alignTop' : {                         
+            'path'          :   '100' 
         }                                       
     }                                           
 }                                               

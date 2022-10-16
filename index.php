@@ -15,7 +15,7 @@
 */
 
 // create version
-$version = '00001';
+$version = '00003';
 
 require_once './php/MobileDetect.php';
 
@@ -106,6 +106,9 @@ $isMobile = $mobileDetect->isMobile();
     // add container id
     textAnimation.options.containerId = 'animationDiv';
     
+    // add frame rate
+    textAnimation.options.frameRate = 40;
+    
     // add debug options    
     textAnimation.options.debug = {
         'on'            : false,
@@ -120,10 +123,8 @@ $isMobile = $mobileDetect->isMobile();
     // add debug options
 
 <?php 
-
         // add animations
-        require_once './assets/animations/intro.php';
-                        
+        require_once './assets/animations/circle.php';
 ?>        
 
     // add window onload event
@@ -140,23 +141,24 @@ $isMobile = $mobileDetect->isMobile();
     
 </script>
 
-<script src="main.js"></script>
-<script src="./service/debuggerModule.js"></script>
-<script src="./service/htmlGeneratorModule.js"></script>
-<script src="./service/extendModule.js"></script>
-<script src="./service/getUiIdModule.js"></script>
-<script src="./service/setStyleModule.js"></script>
-<script src="./service/getElementModule.js"></script>
-<script src="./service/eventManagerModule.js"></script>
-<script src="./service/buttonModule.js"></script>
-<script src="./service/animations/playerModule.js"></script>
+<script src="main.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/debuggerModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/htmlGeneratorModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/extendModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/getUiIdModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/setStyleModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/getElementModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/eventManagerModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/animations/playerModule.js<?php echo '?version=' . $version; ?>"></script>
 
-<script src="./animations/text/textModule.js"></script>
-<script src="./animations/text/animateModule.js"></script>
-<script src="./animations/text/valuesModule.js"></script>
+<script src="./ui/buttonModule.js<?php echo '?version=' . $version; ?>"></script>
 
-<script src="./content/contentModule.js"></script>
-<script src="./content/animation/animationModule.js"></script>
+<script src="./animations/text/textModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./animations/text/animateModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./animations/text/valuesModule.js<?php echo '?version=' . $version; ?>"></script>
+
+<script src="./content/contentModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./content/animation/animationModule.js<?php echo '?version=' . $version; ?>"></script>
 
 
     </body>

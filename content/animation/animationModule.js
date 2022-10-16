@@ -29,7 +29,6 @@
             'element'               :   'div',              // html element type 
             'display'               :   'none',             // css
             'position'              :   'absolute',         // css
-            'text'                  :   'Text',             // string
             'backgroundColor'       :   'transparent',      // css
         };                                                  // done named array
         self.animationIndex = 0;                            // integer
@@ -279,21 +278,26 @@
         self.triggerCanPlayNext = function( options ) {
         // FUNCTION: triggerCanPlayNext( named array: options ) boolean
 
-            // get next animation
-            let nextAnimation = options['index'] + 1 < self.animations.length ?
-                                self.animations[options['index'] + 1] :
-                                null;
-            // get next animation
+            // next index out of animations 
+            if( options['index'] + 1 >= self.animations.length ){
 
-            // next animation ! exists or ! same target
-            if( !nextAnimation ||
-                nextAnimation['target'] !== options['target'] ){
+                // return ! can play next
+                return false;
+
+            } 
+            // next index out of animations 
+
+            // get next animation
+            let nextAnimation = self.animations[options['index'] + 1];
+
+            // ! same target
+            if( nextAnimation['target'] !== options['target'] ){
 
                 // return can play next
                 return true;
 
             } 
-            // next animation exists and ! same target
+            // ! same target
             
             // return ! can play next
             return false;
@@ -303,8 +307,8 @@
         self.playNext = function() {
         // FUNCTION: playNext( void ) void
             
-            // update index
-            self.animationIndex++;
+            // get next animation index
+            self.getNextAnimationIndex();
             
             // all animations played
             if( self.areAllAnimationsPlayed() ){
@@ -331,6 +335,13 @@
             animation.start( );
             
         // DONE FUNCTION: playNext( void ) void
+        };
+        self.getNextAnimationIndex = function() {
+        // FUNCTION: getNextAnimationIndex( void ) void
+                        
+            self.animationIndex++;
+            
+        // DONE FUNCTION: getNextAnimationIndex( void ) void
         };
         self.repeatAnimations = function() {
         // FUNCTION: repeatAnimations( void ) void
@@ -366,8 +377,17 @@
             // update repeated
             self.repeatAnimationsOptions['repeated']++;
             
+            // get from
+            let from = textAnimation.repeatAnimations['from'] ?
+                       self.getAnimationIndexFromId( textAnimation.repeatAnimations['from'] ):
+                       0;
+            // get from
+            
             // reset index
-            self.animationIndex = 0;
+            self.animationIndex = from ?
+                                  from :
+                                  0;
+            // reset index
             
             // create element
             self.createElement();
@@ -379,6 +399,29 @@
             animation.start( );
 
         // DONE FUNCTION: repeatAnimations( void ) void
+        };
+        self.getAnimationIndexFromId = function( id ) {
+        // FUNCTION: getAnimationIndexFromId( string: id ) integer / null
+
+            // loop over animations
+            for( let i = 0; i < self.animations.length; i++ ){
+
+                // id is animation id
+                if( id === self.animations[i]['id'] ){
+  
+                    // return resutl
+                    return i;
+                    
+                }
+                // id is animation id
+                
+            }
+            // loop over animations
+
+            // ! found
+            return null;
+            
+        // DONE FUNCTION: getAnimationIndexFromId( string: id ) integer / null
         };
         self.show = function( options ) {
         // FUNCTION: show( named array: options ) void

@@ -43,8 +43,8 @@ $isMobile = $mobileDetect->isMobile();
                 margin: 0;
                 background-color: black;
                 color: DarkGreen;
-                font-size: 1.2rem;
-                line-height: 1.8rem;
+                font-size: 18px;
+                line-height: 22px;
             }
             a:link {
                 color: MediumAquaMarine;
@@ -59,9 +59,8 @@ $isMobile = $mobileDetect->isMobile();
                 color: DarkOrange;
             }            
             .animationDiv {
-                min-width : 100%;
                 min-height: 400px;
-                height: 100%;
+                overflow: hidden;
             }            
 
             
@@ -124,7 +123,7 @@ $isMobile = $mobileDetect->isMobile();
 <?php 
 
         // add animations
-        require_once './assets/animations/new.php';
+        require_once './assets/animations/intro.php';
                         
 ?>        
 

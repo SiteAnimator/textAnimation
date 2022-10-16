@@ -75,8 +75,11 @@
             // add name space
             self.modules.animations = {};
 
+            // get player module
+            let playerModule = textAnimation.service.animations.playerModule;
+
             // create player module
-            self.modules.animations.player = new textAnimation.service.animations.playerModule( );
+            self.modules.animations.player = new playerModule( );
 
         // DONE FUNCTION: createAnimationServices( void ) void
         };

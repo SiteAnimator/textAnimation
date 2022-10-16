@@ -60,7 +60,8 @@
             let valuesModule = textAnimation.animations.text.valuesModule;
 
             // create module
-            self.modules['values'] = new valuesModule( self.options );
+            self.modules['values'] = new valuesModule( self.callerId,
+                                                       self.options );
 
         // DONE FUNCTION: createValues( void ) void
         };
@@ -224,6 +225,26 @@
             
         // DONE FUNCTION: start( void ) void
         };
+        self.isPlaying = function( ) {
+        // FUNCTION: isPlaying( void ) boolean
+
+            // get animation options
+            let animationOptions = self.animationOptions;
+
+            // animation ready
+            if( animationOptions['ready'] ){
+            
+                // return ! ready
+                return false;
+
+            }
+            // animation ready
+            
+            // return ready
+            return true;
+
+        // DONE FUNCTION: isPlaying( void ) boolean
+        };
         self.stop = function() {
         // FUNCTION: stop( void ) void
 
@@ -296,11 +317,18 @@
         // PUBLIC
         return {
 
-            // FUNCTION: start( string: direction ) void    
-            start : function( direction ){
+            // FUNCTION: start( void ) void    
+            start : function( ){
                 
                 // call internal
-                self.start( direction );
+                self.start( );
+                
+            },
+             // FUNCTION: isPlaying( void ) boolean    
+            isPlaying : function( ){
+                
+                // return internal call
+                return self.isPlaying( );
                 
             },
             // FUNCTION: stop( void ) void    

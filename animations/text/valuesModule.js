@@ -5,22 +5,25 @@
         function:   handels the values for the
                     text animation 
 
-    Last revision: 10-10-2022
+    Last revision: 16-10-2022
 
 */    
 
 // create module function
 ( function( textAnimation ){
         
-    // MODULE: valuesModule( named array: options ) named array
+    // MODULE: valuesModule( html element id: callerId, 
+    //                       named array: options ) named array
         
-    textAnimation.animations.text.valuesModule = function( options ) {
+    textAnimation.animations.text.valuesModule = function( callerId,
+                                                           options ) {
         // PRIVATE:
 
         // MEMBERS:
         var self = this;                                    // object
         self.debugOn = false;                               // boolean
         self.MODULE = 'AnimationsTextValuesModule';         // string
+        self.callerId = callerId;                           // html element id
         self.options = options;                             // named array / undefined 
         self.animationOptions = {                           // named array
             'startDelay'            :   0,                  // integer
@@ -68,8 +71,8 @@
 
         // DONE FUNCTION: extendShow( void ) void
         };
-        self.convertValues = function( direction ) {
-        // FUNCTION: convertValues( string: direction ) void
+        self.convertValues = function( ) {
+        // FUNCTION: convertValues( void ) void
         
             // get animation options
             let animationOptions = self.animationOptions;
@@ -101,7 +104,7 @@
             }
             // trigger exists            
 
-        // DONE FUNCTION: convertValues( string: direction ) void
+        // DONE FUNCTION: convertValues( void ) void
         };
         self.convertItemValues = function( itemIndex, item ) {
         // FUNCTION: convertItemValues( string: itemIndex, named array: item ) void
@@ -266,24 +269,6 @@
                 }
                 // units exists
 
-                // position exists
-                if( item['position'] ){
-                    
-                    // add position
-                    values[key]['position'] = item['position'];
-                    
-                }
-                // position exists
-
-                // offset exists
-                if( item['offset'] ){
-                    
-                    // add offset
-                    values[key]['offset'] = item['offset'];
-                    
-                }
-                // offset exists
-
             });
             // loop over items
             
@@ -318,24 +303,6 @@
                     
                 }
                 // units exists
-                
-                // position exists
-                if( item['position'] ){
-                    
-                    // add position
-                    animationOptions['items'][key]['position'] = item['position'];
-                    
-                }
-                // position exists
-                
-                // offset exists
-                if( item['offset'] ){
-                    
-                    // add offset
-                    animationOptions['items'][key]['offset'] = item['offset'];
-                    
-                }
-                // offset exists
                 
             });
             // loop over values
@@ -534,7 +501,8 @@
         // DONE PUBLIC
         
     };
-    // DONE MODULE: valuesModule( named array: options ) named array 
+    // DONE MODULE: valuesModule( html element id: callerId, 
+    //                            named array: options ) named array 
     
 })( textAnimation );
 // done create module function
