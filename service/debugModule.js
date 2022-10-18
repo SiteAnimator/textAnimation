@@ -1,12 +1,27 @@
 /*
-        @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
   
-        file:       debuggerModule.js
-        function:   Displays a debug window
-                    adds the funtion: 'debug' to the application;
-                    displays messages send through the debug function
-  
-        Last revision: 14-09-2022
+    file:       debugModule.js
+    function:   Adds the functions:
+
+                textAnimation.debug: displays messages on screen when on. 
+
+                to the application
+
+                To initalize set:
+
+                textAnimation.options.debug = {
+                    'on'            : false,        // boolean
+                    'layoutOptions' : {
+                        'zIndex'    : 8000,         // integer  
+                        'top'       : 480,          // integer  
+                        'left'      : 120,          // integer
+                        'width'     : 400,          // integer
+                        'height'    : 300           // integer
+                    }
+                };
+
+    Last revision: 17-10-2022
  
 */
 
@@ -16,13 +31,13 @@
     // create name space
     textAnimation.service = textAnimation.service ? textAnimation.service : {};
     
-    // MODULE: debuggerModule( named array / undefined: options ) void 
-    textAnimation.service.debuggerModule = function( options ) {        
+    // MODULE: debugModule( named array / undefined: options ) void 
+    textAnimation.service.debugModule = function( options ) {        
         // PRIVATE:
         
         // MEMBERS
         var self = this;                                    // object
-        self.moduleName = 'debuggerModule';                 // string
+        self.moduleName = 'DebugModule';                    // string
         self.options = options;                             // named array / undefined
         self.on = true;                                     // boolean
         self.elementIds = {                                 // named array 
@@ -387,7 +402,7 @@
         // DONE PUBLIC
                 
     };
-    // DONE MODULE: debuggerModule( named array / undefined: options ) void 
+    // DONE MODULE: debugModule( named array / undefined: options ) void 
     
 })( textAnimation );
 // done create module function

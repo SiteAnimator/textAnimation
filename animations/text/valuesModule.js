@@ -1,11 +1,11 @@
 /*
-    @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
-        file:       valuesModule.js
-        function:   handels the values for the
-                    text animation 
+    file:       valuesModule.js
+    function:   initializes, updates and evaluates the values 
+                for the text animation. 
 
-    Last revision: 16-10-2022
+    Last revision: 17-10-2022
 
 */    
 
@@ -13,8 +13,7 @@
 ( function( textAnimation ){
         
     // MODULE: valuesModule( html element id: callerId, 
-    //                       named array: options ) named array
-        
+    //                       named array: options ) named array        
     textAnimation.animations.text.valuesModule = function( callerId,
                                                            options ) {
         // PRIVATE:
@@ -69,7 +68,7 @@
             // add initial options
             self.animationOptions = textAnimation.extend( self.animationOptions, self.initialOptions );
 
-        // DONE FUNCTION: extendShow( void ) void
+        // FUNCTION: extendOptions( void ) void
         };
         self.convertValues = function( ) {
         // FUNCTION: convertValues( void ) void
@@ -461,7 +460,7 @@
                 return self.getStartDelay( );
                 
             },
-            // FUNCTION: getDelay( string: direction ) integer
+            // FUNCTION: getDelay( void ) integer
             getDelay : function( ){
                 
                 // return internal call
@@ -482,11 +481,11 @@
                 return self.triggerReached( );
                 
             },
-            // FUNCTION: isReady( string: direction ) boolean
-            isReady : function( direction ){
+            // FUNCTION: isReady( void ) boolean
+            isReady : function( ){
                 
                 // return internal call
-                return self.isReady( direction );
+                return self.isReady( );
                 
             },
             // FUNCTION: destruct( void ) void    

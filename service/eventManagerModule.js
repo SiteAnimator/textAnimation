@@ -1,26 +1,26 @@
 /*
-    @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
     file:       eventManagerModule.js
     function:   Adds the functions:
-                subscribeToEvent, 
-                unsubscribeFromEvent,
-                callEvent 
-                to the application
-                csll event will call all subscribed functions
 
-    Last revision: 10-10-2022
+                textAnimation.subscribeToEvent: adds a subscription 
+                textAnimation.unsubscribeFromEvent: removes a subscription
+                textAnimation.callEvent: will call all subscribed functions 
+
+                to the application
+
+    Last revision: 17-10-2022
  
 */    
 
 // create module function
 ( function( textAnimation ){
         
-    // MODULE: getUniqueIdModule( textAnimation ) void
-        
     // create name space
     textAnimation.service = textAnimation.service ? textAnimation.service : {};
-    
+            
+    // MODULE: eventManagerModule( void ) void
     textAnimation.service.eventManagerModule = function( ) {
         // PRIVATE:
 

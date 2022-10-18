@@ -26,6 +26,13 @@ textAnimation.animations = [
 
 
 
+ 
+require_once './assets/animations/parts/sayHello.php';
+
+// add separator
+echo ',';
+
+
 require_once './assets/animations/parts/showText.php';
  
 // add separator
@@ -38,16 +45,8 @@ echo ',';
 
 require_once './assets/animations/parts/hideText.php';
 
-/*
   
   
- 
-require_once './assets/animations/parts/sayHello.php';
-
-// add separator
-echo ',';
-
-
 // add separator
 echo ',';
 
@@ -64,7 +63,7 @@ echo ',';
 
 require_once './assets/animations/parts/hideAnimationText.php';
 
-*/
+
 ?>
 
 ];

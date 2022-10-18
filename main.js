@@ -3,10 +3,10 @@
 
     file:       main.js
     function:   This file contains the main application module.  
-                handels start after page load
                 creates service modules
+                handels start after page load
                 
-    Last revision: 10-10-2022
+    Last revision: 17-10-2022
  
 */    
 
@@ -20,7 +20,7 @@
         
         // MEMBERS
         var self = this;                        // object
-        self.moduleName = 'main';               // string
+        self.moduleName = 'mainModule';         // string
         self.modules = {};                      // named array
     
         self.start = function() {
@@ -28,9 +28,6 @@
 
             // create services
             self.createServices();
-
-            // create animation services
-            self.createAnimationServices();
 
             // create content
             self.createContent();
@@ -46,8 +43,8 @@
                                {};
             // get debug options
 
-            // create debugger module
-            self.modules.debugger = new textAnimation.service.debuggerModule( debugOptions );
+            // create debug module
+            self.modules.debug = new textAnimation.service.debugModule( debugOptions );
 
             // create extend module
             self.modules.extend = new textAnimation.service.extendModule( );
@@ -66,6 +63,9 @@
             
             // create event manager module
             self.modules.eventManager = new textAnimation.service.eventManagerModule( );
+
+            // create animation services
+            self.createAnimationServices();
 
         // DONE FUNCTION: createServices( void ) void
         };

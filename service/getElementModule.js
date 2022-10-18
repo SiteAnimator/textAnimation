@@ -1,30 +1,31 @@
 /*
-    @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
     file:       getElementModule.js
-    function:   Adds the function getElement to the application
-                tries to get the element from given id
-                return: element / null
+    function:   Adds the function:
+    
+                textAnimation.getElement: tries to get the element from given id 
+                
+                to the application
 
-    Last revision: 14-09-2022
+    Last revision: 17-10-2022
  
 */    
 
 // create module function
 ( function( textAnimation ){
         
-    // MODULE: getUniqueIdModule( textAnimation ) void
-        
     // create name space
     textAnimation.service = textAnimation.service ? textAnimation.service : {};
-    
+            
+    // MODULE: getElementModule( void ) void
     textAnimation.service.getElementModule = function( ) {
         // PRIVATE:
 
         // MEMBERS:
         var self = this;                                    // object
         self.debugOn = false;                               // boolean
-        self.MODULE = 'getElementModule';                   // string
+        self.MODULE = 'GetElementModule';                   // string
         self.index = null;                                  // integer / null
         self.hideNames = true;                              // boolean
         // DONE MEMBERS     
@@ -81,7 +82,7 @@
         // DONE PUBLIC
         
     };
-    // DONE MODULE: getUiIdModule( void ) void 
+    // DONE MODULE: getElementModule( void ) void 
     
 })( textAnimation );
 // done create module function

@@ -1,19 +1,18 @@
 /*
-    @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
     file:       animateModule.js
-    function:   handels animate of a text animation 
+    function:   handels the styling of the text animation.
 
-    Last revision: 26-09-2022
+    Last revision: 17-10-2022
  
 */    
 
 // create module function
 ( function( textAnimation ){
         
-   // MODULE: animateModule( html element id: callerId, 
-    //                       named array / undefined: options ) named array
-        
+    // MODULE: animateModule( html element id: callerId, 
+    //                        named array / undefined: options ) named array        
     textAnimation.animations.text.animateModule = function( callerId,
                                                             options ) {
         // PRIVATE:
@@ -86,6 +85,7 @@
             let units = values['fontSize']['units'] ?
                         values['fontSize']['units'] :
                         'px';        
+            // get units
 
             // set font size
             textAnimation.setStyle( self.callerId, 'font-size', parseInt( values['fontSize']['value'] ) + units ); 
@@ -266,6 +266,7 @@
                          ') ';
             // add translate y
                 
+            // return result    
             return transform;
                 
         // DONE FUNCTION: animateTopTransform( named array: values ) string
@@ -369,7 +370,7 @@
             // add align left
             transform += self.animateAlignLeftTransform( values );
 
-            // done
+            // return result
             return transform;
                 
         // DONE FUNCTION: animateAlignTransform( named array: values ) string
@@ -586,8 +587,8 @@
         // DONE PUBLIC
         
     };
-    // DONE MODULE: pathModule( html element id: callerId, 
-    //                          named array / undefined: options ) named array 
+    // DONE MODULE: animateModule( html element id: callerId, 
+    //                             named array / undefined: options ) named array 
     
 })( textAnimation );
 // done create module function

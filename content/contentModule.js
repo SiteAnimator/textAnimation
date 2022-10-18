@@ -1,10 +1,11 @@
 /*
-        @package    SiteAnimator\Modules\Animations\TextAnimation
-  
-        file:       contentModule.js
-        function:   Generates the HTML for the content.
-  
-        Last revision: 10-10-2022
+    @package    SiteAnimator\Animations\TextAnimation
+
+    file:       contentModule.js
+    function:   Generates the HTML for the content.
+                Handles window resizing events.
+
+    Last revision: 17-10-2022
  
 */
 
@@ -21,7 +22,7 @@
         
         // MEMBERS
         var self = this;                                    // object
-        self.moduleName = 'contentModule';                  // string
+        self.moduleName = 'ContentModule';                  // string
         self.debugOn = true;                                // boolean
         self.containerOptions = {                           // named array 
             'id'                    :   textAnimation.getUiId( self.moduleName + 'Container' ), // string 
@@ -110,7 +111,7 @@
         self.start = function() {
         // FUNCTION: start( void ) void
 
-            // get content module
+            // get animation module
             let animationModule = textAnimation.content.animation.animationModule;
 
             // create animation module
@@ -157,10 +158,8 @@
         self.getWindowDimensions = function( layout ) {
         // FUNCTION: getWindowDimensions( named array: layout ) void
 
-
             // get parent layout
-            let containerLayout = textAnimation.getElementById( textAnimation.options.containerId ).getBoundingClientRect();
-            
+            let containerLayout = textAnimation.getElementById( textAnimation.options.containerId ).getBoundingClientRect();            
 
             // create dimensions
             layout['window']['dimensions'] = {
@@ -168,9 +167,6 @@
                 'height'    :   containerLayout.height
             };
             // create dimensions
-
-            // debug info
-            self.debug( 'window width: ' + layout['window']['dimensions']['width'] );
 
         // DONE FUNCTION: getWindowDimensions( named array: layout ) void
         };
@@ -191,9 +187,6 @@
                               self.layoutOptions['maximumWidth'] );
             // set maximum
             
-            // debug info
-            self.debug( 'width: ' + width );
-
             // get container dimensions
             layout['container']['dimensions'] = {
                 'width'     :   width,

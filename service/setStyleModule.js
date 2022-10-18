@@ -1,28 +1,31 @@
 /*
-    @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
     file:       setStyleModule.js
-    function:   set the a style of an element
+    function:   Adds the function:
+                
+                textAnimation.setStyle: sets the a style of an element
 
-    Last revision: 23-09-2022
+                to the application
+
+    Last revision: 17-10-2022
  
 */    
 
 // create module function
 ( function( textAnimation ){
         
-    // MODULE: setStyleModule( void ) void
-        
     // create name space
     textAnimation.service = textAnimation.service ? textAnimation.service : {};
-    
+            
+    // MODULE: setStyleModule( void ) void
     textAnimation.service.setStyleModule = function( ) {
         // PRIVATE:
 
         // MEMBERS:
         var self = this;                                    // object
         self.debugOn = false;                               // boolean
-        self.MODULE = 'setStyleModule';                     // string
+        self.MODULE = 'SetStyleModule';                     // string
         // DONE MEMBERS     
         
         // FUNCTIONS

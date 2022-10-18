@@ -1,10 +1,10 @@
 /*
-    @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
     file:       textModule.js
-    function:   handels text animation 
+    function:   handels a text animation 
 
-     Last revision: 10-10-2022
+    Last revision: 17-10-2022
 
 */    
 
@@ -14,13 +14,11 @@
     // create name spaces
     textAnimation.animations = textAnimation.animations ? textAnimation.animations : {};
     textAnimation.animations.text = textAnimation.animations.text ? textAnimation.animations.text : {};
-    // create name spaces
-    
+    // create name spaces    
     
     // MODULE: textModule( html element id: callerId, 
     //                     named array / undefined: options, 
-    //                     named array / undefined: callbacks ) named array
-        
+    //                     named array / undefined: callbacks ) named array         
     textAnimation.animations.text.textModule = function( callerId,
                                                          options,
                                                          callbacks) {
@@ -371,7 +369,7 @@
         // DONE PUBLIC
         
     };
-    // DONE MODULE: pathModule( html element id: callerId, 
+    // DONE MODULE: textModule( html element id: callerId, 
     //                          named array / undefined: options, 
     //                          named array / undefined: callbacks ) named array 
     

@@ -1,10 +1,11 @@
 /*
-        @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
+
+    file:       animationModule.js
+    function:   plays the animations.
+                Creates and removes elements.
   
-        file:       animationModule.js
-        function:   creates the text animation.
-  
-        Last revision: 10-10-2022
+    Last revision: 17-10-2022
  
 */
 
@@ -25,162 +26,29 @@
         self.debugOn = true;                                // boolean
         self.parentId = parentId;                           // html element id
         self.animations = textAnimation.animations;         // array
-        self.elementOptions = {                             // named array 
-            'element'               :   'div',              // html element type 
-            'display'               :   'none',             // css
-            'position'              :   'absolute',         // css
-            'backgroundColor'       :   'transparent',      // css
-        };                                                  // done named array
         self.animationIndex = 0;                            // integer
-        self.elements = {};                                 // named array
         self.repeatAnimationsOptions = {                    // named array
             'repeated'              :   0,                  // integer
         };                                                  // done named array
+        self.modules = {};                                  // named array
         // DONE MEMBERS     
         
         // FUNCTIONS
         self.construct = function() {
         // FUNCTION: construct( void ) void
             
-            // debug
-            self.debug( 'content module construct' );
+            self.debug( 'module construct' );
+ 
+            // create elements
+            self.createElements();
  
             // start
             self.start();
  
         // DONE FUNCTION: construct( void ) void
         };
-        self.createElement = function() {
-        // FUNCTION: createElement( void ) void
-
-            // get current animation
-            let animationOptions = self.animations[self.animationIndex]; 
-
-            // get target
-            let target = animationOptions['target']; 
-
-            // create element
-            self.elements[target] = self.elements[target] ?
-                                    self.elements[target] :
-                                    {};
-            // create element
-            
-            // create element ! set
-            if( !animationOptions['createElement'] ){
-                
-                // done 
-                return;
-                
-            }
-            // create element ! set
-
-            // copy element options
-            let elementOptions = textAnimation.extend( {}, self.elementOptions );
-
-            // has specific options
-            if( animationOptions['elementOptions'] ){
-                
-                // extend options
-                elementOptions = textAnimation.extend( elementOptions, animationOptions['elementOptions'] );
-                
-            }
-            // has specific options
-
-            // set id
-            elementOptions['id'] = textAnimation.getUiId( self.moduleName + target ); 
-            
-            // set text
-            elementOptions['text'] = animationOptions['text']; 
-            
-            // create element
-            textAnimation.appendContainer( self.parentId, elementOptions );
-
-            // save element
-            self.elements[target]['elementId'] = elementOptions['id'];
-            
-        // DONE FUNCTION: createElement( void ) void
-        };
-        self.removeElement = function( options ) {
-        // FUNCTION: removeElement( named array: options ) void
-
-            // ! remove element
-            if( !options['removeElement'] ){
-
-                // done
-                return;
-                
-            }
-            // ! remove element
-
-            // get target
-            let target = options['target']; 
-
-            // get element
-            let element = self.elements[target];
-            
-            // has animation
-            if( element['animation'] ){
-
-                // destroy animation
-                element['animation'].destruct();
-                
-            }
-            // has animation
-
-            // remove html
-            textAnimation.getElementById( element['elementId'] ).remove();
-            
-            // unset element
-            delete self.elements[target];
-
-        // DONE FUNCTION: removeElement( named array: options ) void
-        };
-        self.start = function() {
-        // FUNCTION: start( void ) void
-        
-            // are all animations played
-            if( self.areAllAnimationsPlayed() ){
-                      
-                // done
-                return;
-                
-            }
-            // are all animations played
-            
-            // create element
-            self.createElement();
-
-            // create animation
-            let animation = self.createAnimation();
-
-            // start animation
-            animation.start( );
-
-        // DONE FUNCTION: start( void ) void
-        };
-        self.createAnimation = function() {
-        // FUNCTION: createAnimation( void ) module
-
-            // get copy animation
-            let animationOptions = textAnimation.extend( {}, self.animations[self.animationIndex] ); 
-
-            // add index
-            animationOptions['index'] = self.animationIndex;
-
-            // add parent id
-            animationOptions['parentId'] = self.parentId;
-
-            // get target
-            let target = animationOptions['target']; 
-
-            // get element id
-            let elementId = self.elements[target]['elementId']; 
-
-            // remove animation
-            self.removeAnimation( self.elements[target]['animation'] );
-
-            // get animation module
-            let animationModule = textAnimation.animations.text.textModule;
+        self.createElements = function() {
+        // FUNCTION: createElements( void ) void
 
             // create callbacks
             var callbacks = {
@@ -189,36 +57,47 @@
             };
             // create callbacks
 
-            // create animation
-            let animation = new animationModule( elementId,
-                                                 animationOptions,
-                                                 callbacks );
-            // create animation
+            // get elements module
+            let elementsModule = textAnimation.content.animation.elementsModule;
             
-            // save animation
-            self.elements[target]['animation'] = animation;
+            // create elements module
+            self.modules['elements'] = new elementsModule( self.parentId,
+                                                           callbacks );
+            // create elements module
 
-            // return result
-            return animation;
-
-        // DONE FUNCTION: createAnimation( void ) module
+        // DONE FUNCTION: createElements( void ) void
         };
-        self.removeAnimation = function( animation ) {
-        // FUNCTION: removeAnimation( module / null: animation ) void
-
-            // animation ! exists
-            if( !animation ){
-                
+        self.start = function() {
+        // FUNCTION: start( void ) void
+        
+            // are all animations played
+            if( self.areAllAnimationsPlayed() ){
+                      
+                // debug info
+                self.debug( 'No animations found!' );
+                      
                 // done
                 return;
                 
             }
-            // animation ! exists
+            // are all animations played
             
-            // destroy animation
-            animation.destruct();
+            // get current animation
+            let animationOptions = self.animations[self.animationIndex]; 
 
-        // DONE FUNCTION: removeAnimation( module / null: animation ) void
+            // set index
+            animationOptions['index'] = self.animationIndex;
+
+            // create element
+            self.modules['elements'].createElement( animationOptions );
+            
+            // create animation
+            let animation = self.modules['elements'].createAnimation( animationOptions );
+
+            // start animation
+            animation.start( );
+
+        // DONE FUNCTION: start( void ) void
         };
         self.trigger = function( options ) {
         // FUNCTION: trigger( named array: options ) void
@@ -230,7 +109,7 @@
             if( options['trigger']['show'] ){
                 
                 // show
-                self.show( options );
+                self.modules['elements'].show( options );
          
             }
             // show is set
@@ -238,6 +117,9 @@
             // play next exists and can play next
             if( options['trigger']['playNext'] &&
                 self.triggerCanPlayNext( options ) ){
+                
+                // set triggered
+                options['triggered'] = true;
                 
                 // play next
                 self.playNext();
@@ -254,25 +136,41 @@
             self.debug( 'ready' );
          
             // save values
-            self.saveValues( options );
+            self.modules['elements'].saveValues( options );
             
             // remove element
-            self.removeElement( options );
+            self.modules['elements'].removeElement( options );
             
-            // trigger exists and has play next and can play next
-            if( options['trigger'] &&
-                options['trigger']['playNext'] &&
-                self.triggerCanPlayNext( options ) ){
+            // was triggered
+            if( options['triggered'] ){
                 
                 // done
                 return;
 
             }
-            // trigger exists and has play next and can play next
+            // was triggered
 
-            // play next
-            self.playNext();
+            // play next is set
+            if( options['playNext'] ){
+                
+                // play next
+                self.playNext();
             
+                // done
+                return;
+
+            }
+            // play next is set
+
+            // all playing animations played
+            if( self.modules.elements.allAnimationsPlayed() ){
+                
+                // play next
+                self.playNext();
+            
+            }
+            // all playing animations played
+
         // DONE FUNCTION: ready( named array: options ) void
         };
         self.triggerCanPlayNext = function( options ) {
@@ -288,19 +186,19 @@
             // next index out of animations 
 
             // get next animation
-            let nextAnimation = self.animations[options['index'] + 1];
+            let animationOptions = self.animations[options['index'] + 1]; 
 
-            // ! same target
-            if( nextAnimation['target'] !== options['target'] ){
+            // target animation is playing
+            if( self.modules['elements'].animationIsPlaying( animationOptions ) ){
 
-                // return can play next
-                return true;
+                // return ! can play next
+                return false;
 
             } 
             // ! same target
             
-            // return ! can play next
-            return false;
+            // return can play next
+            return true;
 
         // DONE FUNCTION: triggerCanPlayNext( named array: options ) boolean
         };
@@ -322,14 +220,20 @@
             }
             // all animations played
             
-            // create element
-            self.createElement();
+            // get current animation
+            let animationOptions = self.animations[self.animationIndex]; 
 
-            // create animation
-            let animation = self.createAnimation();
+            // set index
+            animationOptions['index'] = self.animationIndex;
+
+            // call elements
+            self.modules['elements'].createElement( animationOptions );
             
+            // create animation
+            let animation = self.modules['elements'].createAnimation( animationOptions );
+
             // set values
-            self.setValues( animation );
+            self.modules['elements'].setValues( animationOptions );
             
             // start animation
             animation.start( );
@@ -389,14 +293,8 @@
                                   0;
             // reset index
             
-            // create element
-            self.createElement();
-
-            // create animation
-            let animation = self.createAnimation();
-
-            // start animation
-            animation.start( );
+            // start 
+            self.start( );
 
         // DONE FUNCTION: repeatAnimations( void ) void
         };
@@ -423,78 +321,6 @@
             
         // DONE FUNCTION: getAnimationIndexFromId( string: id ) integer / null
         };
-        self.show = function( options ) {
-        // FUNCTION: show( named array: options ) void
-
-            // target ! set
-            if( !options['target'] ){
-            
-                // done
-                return;
-                
-            }
-            // target ! set
-            
-            // get target
-            let target = options['target'];
-            
-            // get element id
-            let elementId = self.elements[target]['elementId']; 
-
-            // show text
-            textAnimation.setStyle( elementId , 'display', 'table' ); 
-         
-        // DONE FUNCTION: show( named array: options ) void
-        };
-        self.saveValues = function( options ) {
-        // FUNCTION: saveValues( named array: options ) void
-            
-            // get current animation
-            let animationOptions = self.animations[options['index']]; 
-
-            // get target
-            let target = animationOptions['target'];
-
-            // get element
-            let element = self.elements[target];
-
-            // get values
-            let values = element['values'] ?
-                         element['values'] :
-                         {};
-            // get values
-
-            // get values
-            element['values'] = textAnimation.extend( values, element['animation'].getValues() );
-            
-        // DONE FUNCTION: saveValues( named array: options ) void
-        };
-        self.setValues = function() {
-        // FUNCTION: setValues( void ) void
-            
-            // get current animation
-            let animationOptions = self.animations[self.animationIndex]; 
-
-            // get target
-            let target = animationOptions['target'];
-
-            // get element
-            let element = self.elements[target];
-
-            // element['values'] ! set
-            if( !element['values'] ){
-                
-                // done
-                return;
-                
-            }
-            // values ! set
-            
-            // set values
-            element['animation'].setValues( element['values'] );
-
-            // DONE FUNCTION: setValues( void ) void
-        };
         self.areAllAnimationsPlayed = function() {
         // FUNCTION: areAllAnimationsPlayed( void ) boolean
            
@@ -518,71 +344,14 @@
         self.layoutChange = function() {
         // FUNCTION: layoutChange( void ) void
             
-            // loop over elements
-            Object.entries( self.elements ).forEach( ( [key, element] ) => {
-
-                // adjust element
-                self.adjustElement( key, element );
-                
-            });
-            // loop over elements
             
         // DONE FUNCTION: layoutChange( void ) void
-        };
-        self.adjustElement = function( key, element ) {
-        // FUNCTION: adjustElement( string: key, named array: element ) void
-            
-            // no animation
-            if( !element['animation'] ){
-            
-                // done
-                return;
-                
-            }
-            // no animation
-            
-            // call animation
-            element['animation'].layoutChange();
-            
-        // DONE FUNCTION: adjustElement( string: key, named array: element ) void
-        };
-        self.removeAnimations = function() {
-        // FUNCTION: removeAnimations( void ) void
-            
-            // loop over animation modules
-            Object.entries( self.animationModules ).forEach( ( [key, module] ) => {
-
-                // module exists
-                if( module ){
-
-                    // destroy module
-                    module.destruct();
-                    
-                }
-                // module exists
-                
-            });
-            // loop over animation modules
-                             
-            // unset animation modules
-            self.animationModules = null;
-             
-        // DONE FUNCTION: removeAnimations( void ) void
         };
         self.destruct = function() {
         // FUNCTION: destruct( void ) void
             
             // debug info
             self.debug( 'destruct' );
-
-            // remove animations
-            self.removeAnimations();
-
-            // remove html
-            self.removeHtml();
-
-            // unset saved values
-            self.savedValues = null;
 
         // DONE FUNCTION: destruct( void ) void
         };

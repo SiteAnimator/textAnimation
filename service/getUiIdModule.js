@@ -1,30 +1,31 @@
 /*
-    @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
     file:       getUiIdModule.js
-    function:   Adds the function getUniqueId to the application
-                generates an unique id from a string
-                return: string
+    function:   Adds the function: 
 
-    Last revision: 12-09-2022
+                textAnimation.getUniqueId: generates an unique id from a string.
+
+                to the application
+
+    Last revision: 17-10-2022
  
 */    
 
 // create module function
 ( function( textAnimation ){
         
-    // MODULE: getUniqueIdModule( textAnimation ) void
-        
     // create name space
     textAnimation.service = textAnimation.service ? textAnimation.service : {};
-    
+            
+    // MODULE: getUiIdModule( void ) void
     textAnimation.service.getUiIdModule = function( ) {
         // PRIVATE:
 
         // MEMBERS:
         var self = this;                                    // object
         self.debugOn = false;                               // boolean
-        self.MODULE = 'getUiIdModule';                      // string
+        self.MODULE = 'GetUiIdModule';                      // string
         self.index = null;                                  // integer / null
         self.hideNames = true;                              // boolean
         // DONE MEMBERS     

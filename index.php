@@ -1,16 +1,16 @@
 <?php
 /*
-    @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
-    file:       example.html
-    function:   Demonstrates an text animation created with Javascript modules.
+    file:       index.html
+    function:   Demonstrates a text animation created with Javascript modules.
 
-        author:     Rob Wolters
-        company:    SiteAnimator
-        email:      info@siteanimator.nl
-        liscence:   GNU GENERAL PUBLIC LICENSE Version 3
- 
-    Last revision: 10-10-2022
+    author:     Rob Wolters
+    company:    SiteAnimator
+    email:      info@siteanimator.nl
+    liscence:   GNU GENERAL PUBLIC LICENSE Version 3
+
+    Last revision:  17-10-2022
   
 */
 
@@ -111,7 +111,7 @@ $isMobile = $mobileDetect->isMobile();
     
     // add debug options    
     textAnimation.options.debug = {
-        'on'            : false,
+        'on'            : true,
         'layoutOptions' : {
             'zIndex'    : 8000,
             'top'       : 480,
@@ -124,7 +124,7 @@ $isMobile = $mobileDetect->isMobile();
 
 <?php 
         // add animations
-        require_once './assets/animations/circle.php';
+        require_once './assets/animations/presentation/presentation.php';
 ?>        
 
     // add window onload event
@@ -142,7 +142,7 @@ $isMobile = $mobileDetect->isMobile();
 </script>
 
 <script src="main.js<?php echo '?version=' . $version; ?>"></script>
-<script src="./service/debuggerModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/debugModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/htmlGeneratorModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/extendModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/getUiIdModule.js<?php echo '?version=' . $version; ?>"></script>
@@ -159,6 +159,7 @@ $isMobile = $mobileDetect->isMobile();
 
 <script src="./content/contentModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./content/animation/animationModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./content/animation/elementsModule.js<?php echo '?version=' . $version; ?>"></script>
 
 
     </body>

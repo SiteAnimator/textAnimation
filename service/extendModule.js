@@ -1,31 +1,31 @@
 /*
-        @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
-        file:       extendModule.js
-        function:   Adds the function 
-                        extend:  extends an array or object
-                    to the application
+    file:       extendModule.js
+    function:   Adds the function:
 
+                textAnimation.extend:  extends an array or object
 
-        Last revision: 10-10-2022
- 
+                to the application
+
+    Last revision: 17-10-2022
+
 */    
 
 // create module function
 ( function( textAnimation ){
         
-    // MODULE: extendModule( void ) void
-        
     // create name space
     textAnimation.service = textAnimation.service ? textAnimation.service : {};
-    
+            
+    // MODULE: extendModule( void ) void
     textAnimation.service.extendModule = function( ) {
         // PRIVATE:
 
         // MEMBERS:
         var self = this;                                    // object
         self.debugOn = true;                               // boolean
-        self.MODULE = 'extendModule';                       // string
+        self.MODULE = 'ExtendModule';                       // string
         self.initial = null;                                // array / named array / null
         self.overRide = null;                               // array / named array / null
         self.result = null;                                 // array / named array / null
@@ -49,7 +49,7 @@
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
         self.extend = function( initial, overRide ) {
-        // FUNCTION: extend( named array / array: initial, named array / array: overRide ) named array / array
+        // FUNCTION: extend( named array / array: initial, named array / array: overRide ) named array / array / var
 
             // input ! valid
             if( !self.validateInput( initial, overRide ) ){
@@ -66,7 +66,7 @@
             // return result
             return self.result;
             
-        // DONE FUNCTION: extend( named array / array: initial, named array / array: overRide ) named array / array
+        // DONE FUNCTION: extend( named array / array: initial, named array / array: overRide ) named array / array / var
         };
         self.validateInput = function( initial, overRide ) {
         // FUNCTION: validateInput( named array: initial, named array: overRide ) boolean

@@ -1,28 +1,33 @@
 /*
-        @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
     file:       playerModule.js
     function:   Adds the functions:
-                    addAnimationFrame
-                    removeAnimationFrame
-                    pauseAnimations
-                    resumeAnimations
-                    animationsPaused     
-                to the application
-                handles timing animation frames
+                    
+                textAnimation.addAnimationFrame: add a frame
+                textAnimation.removeAnimationFrame: remove an added frame
+                textAnimation.pauseAnimations: pause playing
+                textAnimation.resumeAnimations: resume playing
+                textAnimation.animationsPaused: are the animations paused     
 
-    Last revision: 10-10-2022
+                to the application
+
+                The player will play the frames in a defined frame rate.
+                to set the frame rate set:
+
+                textAnimation.options.frameRate = 40; // integer                
+
+    Last revision: 17-10-2022
  
 */    
 
 // create module function
 ( function( textAnimation ){
         
-    // MODULE: playerModule( void ) void
-        
     // create name space
     textAnimation.service.animations = textAnimation.service.animations ? textAnimation.service.animations : {};
-    
+            
+    // MODULE: playerModule( void ) named array
     textAnimation.service.animations.playerModule = function( ) {
         // PRIVATE:
 
@@ -31,7 +36,7 @@
         self.debugOn = true;                               // boolean
         self.MODULE = 'AnimationsPlayerModule';             // string
         self.maximumFrameSpeed = textAnimation.options.frameRate ?
-                                 textAnimation.options.frameRate :
+                                 parseInt( textAnimation.options.frameRate ) :
                                  40;                        // integer
         self.minimumDelay = 1000 / self.maximumFrameSpeed;  // float
         self.animationFrameRequestId = null;                // window.requestAnimationFrame id / null
@@ -511,7 +516,7 @@
         // DONE PUBLIC
         
     };
-    // DONE MODULE: playerModule( void ) void 
+    // DONE MODULE: playerModule( void ) named array 
     
 })( textAnimation );
 // done create module function

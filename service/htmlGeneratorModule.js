@@ -1,11 +1,14 @@
 /*
-    @package    SiteAnimator\Modules\Animations\TextAnimation
+    @package    SiteAnimator\Animations\TextAnimation
 
     file:       htmlGeneratorModule.js
-    function:   Generates a HTML string from JSON
-                adds the function generateHtml to the app
-  
-    Last revision: 11-09-2022
+    function:   Adds the function:
+
+                textAnimation.generateHtml: generates a html string from json. 
+
+                to the application
+
+    Last revision: 17-10-2022
  
 */
 
@@ -21,7 +24,7 @@
         
         // MEMBERS
         var self = this;                                    // object
-        self.moduleName = 'htmlGeneratorModule';            // string
+        self.moduleName = 'HtmlGeneratorModule';            // string
         self.debugOn = true;                                // boolean
         self.closeElements = [                              // array
             'a',                                            // string
@@ -61,8 +64,6 @@
             'size'              :   'size',                 // string
             'columns'           :   'cols',                 // string
             'rows'              :   'rows',                 // string
-            'width'             :   'width',                // string
-            'height'            :   'height',               // string
             'maximumLength'     :   'maxlength',            // string
             'rowSpan'           :   'rowspan',              // string
             'columnSpan'        :   'colspan',              // string
@@ -101,8 +102,8 @@
             'maximumWidth'      :   'max-width',            // string
             'minimumHeight'     :   'min-height',           // string
             'maximumHeight'     :   'max-height',           // string
-            'styleWidth'        :   'width',                // string
-            'styleHeight'       :   'height',               // string
+            'width'             :   'width',                // string
+            'height'            :   'height',               // string
             'fontFamily'        :   'font-family',          // string
             'fontSize'          :   'font-size',            // string
             'lineHeight'        :   'line-height',          // string
