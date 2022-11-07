@@ -24,15 +24,6 @@
     'items' : {                                 
         'scale' : {                           
             'path'          :   '1,1.2,0.9,1' 
-        },                                       
-        'backgroundColorH' : {                           
-            'path'          :   '27' 
-        },
-        'backgroundColorS' : {                           
-            'path'          :   '100,50,100' 
-        },
-        'backgroundColorL' : {                           
-            'path'          :   '50' 
         }                                       
     },                                                                                  
 },
@@ -48,15 +39,6 @@
     'items' : {                                 
         'scale' : {                           
             'path'          :   '1,1.2,0.9,1' 
-        },                                       
-        'backgroundColorH' : {                           
-            'path'          :   '27' 
-        },
-        'backgroundColorS' : {                           
-            'path'          :   '100,50,100' 
-        },
-        'backgroundColorL' : {                           
-            'path'          :   '50' 
         }                                       
     },                                           
 },
@@ -72,16 +54,7 @@
     'items' : {                                 
         'scale' : {                           
             'path'          :   '1,1.2,0.9,1' 
-        },                                       
-        'backgroundColorH' : {                           
-            'path'          :   '27' 
-        },
-        'backgroundColorS' : {                           
-            'path'          :   '100,50,100' 
-        },
-        'backgroundColorL' : {                           
-            'path'          :   '50' 
-        }                                       
+        }                                      
     },                                           
 },
 {                                               
@@ -91,15 +64,6 @@
     'items' : {                                 
         'scale' : {                           
             'path'          :   '1,1.2,0.9,1' 
-        },                                       
-        'backgroundColorH' : {                           
-            'path'          :   '27' 
-        },
-        'backgroundColorS' : {                           
-            'path'          :   '100,50,100' 
-        },
-        'backgroundColorL' : {                           
-            'path'          :   '50' 
-        }                                       
+        }                                      
     },                                           
 }                                               

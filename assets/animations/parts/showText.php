@@ -14,12 +14,11 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   'T',  
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '36px',
         'padding'           :   '14px 12px 12px 12px',
-        'borderRadius'      :   '50%',
-        'backgroundColor'   :   'orange'
+        'borderRadius'      :   '50%'
     },
     'id'                    :   'showT1',     
     'target'                :   't1',         
@@ -46,24 +45,23 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12' 
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
-        },                                       
-        'alignLeft' : {                         
-            'path'          :   '0' 
         }                                      
     }                                           
 },                                               
 {                                               
     'createElement'         :   true,           
     'text'                  :   'e',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '36px',
-        'padding'           :   '6px 12px 12px 12px',
-        'borderRadius'      :   '50%',
-        'backgroundColor'   :   'orange'
+        'padding'           :   '14px 12px 12px 12px',
+        'borderRadius'      :   '50%'
     },
     'id'                    :   'showE',     
     'target'                :   'e',         
@@ -90,24 +88,23 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
-        },                                       
-        'alignLeft' : {                         
-            'path'          :   '0' 
         }                                       
     }                                           
 },                                               
 {                                               
     'createElement'         :   true,           
     'text'                  :   'x',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '36px',
-        'padding'           :   '6px 12px 12px 12px',
-        'borderRadius'      :   '50%',
-        'backgroundColor'   :   'orange'
+        'padding'           :   '14px 12px 12px 12px',
+        'borderRadius'      :   '50%'
     },
     'id'                    :   'showX',     
     'target'                :   'x',         
@@ -134,24 +131,23 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
-        },                                       
-        'alignLeft' : {                         
-            'path'          :   '0' 
         }                                       
     }                                           
 },                                               
 {                                               
     'createElement'         :   true,           
     'text'                  :   't',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '36px',
-        'padding'           :   '6px 12px 12px 12px',
-        'borderRadius'      :   '50%',
-        'backgroundColor'   :   'orange'
+        'padding'           :   '14px 12px 12px 12px',
+        'borderRadius'      :   '50%'
     },
     'id'                    :   'showT2',     
     'target'                :   't2',         
@@ -177,6 +173,9 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 

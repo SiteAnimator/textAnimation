@@ -27,7 +27,7 @@
         self.debugOn = false;                               // boolean
         self.MODULE = 'GetUiIdModule';                      // string
         self.index = null;                                  // integer / null
-        self.hideNames = true;                              // boolean
+        self.hideNames = false;                              // boolean
         // DONE MEMBERS     
         
         // FUNCTIONS

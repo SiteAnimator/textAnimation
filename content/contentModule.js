@@ -27,9 +27,20 @@
         self.containerOptions = {                           // named array 
             'id'                    :   textAnimation.getUiId( self.moduleName + 'Container' ), // string 
             'element'               :   'div',              // html element type 
+            'position'              :   'absolute',         // css
             'backgroundColor'       :   'transparent',      // css
             'overflow'              :   'hidden',           // css
         };                                                  // done named array  
+        self.contentOptions = {                             // named array 
+            'id'                    :   textAnimation.getUiId( self.moduleName + 'Content' ), // string 
+            'element'               :   'div',              // html element type 
+            'position'              :   'relative',         // css
+            'backgroundColor'       :   'transparent',      // css
+            'top'                   :   '0px',              // css
+            'left'                  :   '0px',              // css
+            'width'                 :   '100%',              // css
+            'height'                :   '100%',              // css
+        };                                                  // done named array
         self.layoutOptions = {                              // named array 
             'maximumWidth'          :   1200,               // integer
             'height'                :   70,                 // integer
@@ -54,9 +65,6 @@
             // adjust layout
             self.layoutChange();
 
-            // start
-            self.start();
- 
         // DONE FUNCTION: construct( void ) void
         };
         self.createHtml = function() {
@@ -75,6 +83,9 @@
                 // create container
                 textAnimation.appendContainer( containerId, self.containerOptions );
                     
+                // create content
+                textAnimation.appendContainer( self.containerOptions['id'], self.contentOptions );
+
                 // done
                 return;
                 
@@ -83,6 +94,9 @@
 
             // create container
             textAnimation.appendContainer( document.body, self.containerOptions );
+                    
+            // create content
+            textAnimation.appendContainer( self.containerOptions['id'], self.contentOptions );
                     
         // DONE FUNCTION: createHtml( void ) void
         };
@@ -108,16 +122,16 @@
 
         // DONE FUNCTION: removeEvents( void ) void
         };
-        self.start = function() {
-        // FUNCTION: start( void ) void
+        self.startAnimation = function() {
+        // FUNCTION: startAnimation( void ) void
 
             // get animation module
             let animationModule = textAnimation.content.animation.animationModule;
 
             // create animation module
-            self.modules.animation = new animationModule( self.containerOptions['id'] );
+            self.modules.animation = new animationModule( self.contentOptions['id'] );
 
-        // DONE FUNCTION: start( void ) void
+        // DONE FUNCTION: startAnimation( void ) void
         };
         self.layoutChange = function() {
         // FUNCTION: layoutChange( void ) void
@@ -132,6 +146,9 @@
             // get window dimensions
             self.getWindowDimensions( layout );
             
+            // set parent dimensions
+            self.setParentDimensions( layout );
+
             // get dimensions
             self.getDimensions( layout );
 
@@ -158,17 +175,31 @@
         self.getWindowDimensions = function( layout ) {
         // FUNCTION: getWindowDimensions( named array: layout ) void
 
-            // get parent layout
-            let containerLayout = textAnimation.getElementById( textAnimation.options.containerId ).getBoundingClientRect();            
-
             // create dimensions
             layout['window']['dimensions'] = {
-                'width'     :   containerLayout.width,
-                'height'    :   containerLayout.height
+                'width'     :   window.innerWidth,
+                'height'    :   window.innerHeight
             };
             // create dimensions
 
         // DONE FUNCTION: getWindowDimensions( named array: layout ) void
+        };
+        self.setParentDimensions = function( layout ) {
+        // FUNCTION: setParentDimensions( named array: layout ) void
+
+            // get window dimensions
+            let windowDimensions = layout['window']['dimensions'];
+
+            // get container id
+            let containerId = textAnimation.options.containerId;
+
+            // set width
+            textAnimation.setStyle( containerId, 'width', windowDimensions['width'] + 'px' );
+            
+            // set height
+            textAnimation.setStyle( containerId, 'height', windowDimensions['height'] + 'px' );
+
+        // DONE FUNCTION: setParentDimensions( named array: layout ) void
         };
         self.getDimensions = function( layout ) {
         // FUNCTION: getDimensions( named array: layout ) void
@@ -244,10 +275,10 @@
             let positions = layout['container']['positions'];
 
             // set left
-            textAnimation.setStyle( self.containerOptions['id'], 'margin-left', positions['left'] + 'px' );
+            textAnimation.setStyle( self.containerOptions['id'], 'left', positions['left'] + 'px' );
             
             // set top
-            textAnimation.setStyle( self.containerOptions['id'], 'margin-top', positions['top'] + 'px' );
+            textAnimation.setStyle( self.containerOptions['id'], 'top', positions['top'] + 'px' );
                 
         // DONE FUNCTION: setPositions( named array: layout ) void
         };
@@ -272,6 +303,21 @@
         
         // PUBLIC
         return {
+            // FUNCTION: startAnimation( void ) void
+            startAnimation : function( ){
+                
+                // call internal
+                self.startAnimation( );
+                
+            },
+            // FUNCTION: destruct( void ) void    
+            destruct : function( ){
+                
+                // call internal
+                self.destruct( );
+                
+            }
+            
         };
         // DONE PUBLIC
         

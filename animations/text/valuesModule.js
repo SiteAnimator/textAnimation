@@ -12,17 +12,14 @@
 // create module function
 ( function( textAnimation ){
         
-    // MODULE: valuesModule( html element id: callerId, 
-    //                       named array: options ) named array        
-    textAnimation.animations.text.valuesModule = function( callerId,
-                                                           options ) {
+    // MODULE: valuesModule( named array: options ) named array        
+    textAnimation.animations.text.valuesModule = function( options ) {
         // PRIVATE:
 
         // MEMBERS:
         var self = this;                                    // object
         self.debugOn = false;                               // boolean
         self.MODULE = 'AnimationsTextValuesModule';         // string
-        self.callerId = callerId;                           // html element id
         self.options = options;                             // named array / undefined 
         self.animationOptions = {                           // named array
             'startDelay'            :   0,                  // integer
@@ -30,6 +27,11 @@
             'duration'              :   40,                 // integer
             'items'                 :   {},                 // named array
         };                                                  // done named array  
+        self.valueKeys = [                                  // array 
+            'units',                                        // string
+            'center',                                       // string
+            'heightRatio'                                   // string
+        ];                                                  // done array  
         self.initialOptions = {                             // named array 
             'step'                  :   0                   // integer
         };                                                  // done named array  
@@ -233,6 +235,21 @@
             // get to
             let to = path[pathPosition + 1];
 
+            // from is string
+            if( typeof from === 'string' ){
+                
+                // set value
+                item['value'] = step === steps - 1 ?
+                                to : 
+                                from;
+                // set value
+            
+                // done
+                return;
+
+            }
+            // from is string
+                        
             // calculate distance
             let distance = ( ( to - from ) / stepsPerPathStep ) * ( stepDistance + 1 );
             
@@ -259,14 +276,8 @@
                 };
                 // create value
 
-                // units exists
-                if( item['units'] ){
-                    
-                    // add units
-                    values[key]['units'] = item['units'];
-                    
-                }
-                // units exists
+                // get value keys
+                self.getValueKeys( values[key], item );
 
             });
             // loop over items
@@ -275,6 +286,29 @@
             return values;
             
         // DONE FUNCTION: getValues( void ) named array
+        };
+        self.getValueKeys = function( value, item) {
+        // FUNCTION: getValueKeys( named array: value, named array: item ) void
+
+            // loop over value keys
+            for( let i = 0; i < self.valueKeys.length; i++ ){
+
+                // get key
+                let key = self.valueKeys[i];
+
+                // key exists
+                if( item[key] !== undefined ){
+
+                    // set key
+                    value[key] = item[key];
+                    
+                }
+                // key exists
+                
+            }
+            // loop over value keys
+                
+        // DONE FUNCTION: getValueKeys( named array: value, named array: item ) void
         };
         self.setValues = function( values ) {
         // FUNCTION: setValues( named array: values ) void
@@ -294,19 +328,36 @@
                 // add value
                 animationOptions['items'][key]['value'] = item['value'];
                 
-                // units exists
-                if( item['units'] ){
-                    
-                    // add units
-                    animationOptions['items'][key]['units'] = item['units'];
-                    
-                }
-                // units exists
+                // set value keys
+                self.setValueKeys( animationOptions['items'][key], item );
                 
             });
             // loop over values
             
         // DONE FUNCTION: setValues( named array: values ) void
+        };
+        self.setValueKeys = function( item, value ) {
+        // FUNCTION: setValueKeys( named array: item, named array: value ) void
+
+            // loop over value keys
+            for( let i = 0; i < self.valueKeys.length; i++ ){
+
+                // get key
+                let key = self.valueKeys[i];
+
+                // key exists
+                if( value[key] !== undefined ){
+
+                    // set key
+                    item[key] = value[key];
+                    
+                }
+                // key exists
+                
+            }
+            // loop over value keys
+                
+        // DONE FUNCTION: setValueKeys( named array: item, named array: value ) void
         };
         self.getStartDelay = function( ) {
         // FUNCTION: getStartDelay( void ) integer
@@ -352,6 +403,16 @@
             // get item
             let item = animationOptions['items'][itemId];    
                 
+            // item or path ! exists
+            if( !item ||
+                !item['path'] ){
+                
+                // return trigger ! reached
+                return false;
+                
+            }
+            // item or path ! exists
+
             // get at
             let at = animationOptions['trigger']['at'];    
                 
@@ -500,8 +561,7 @@
         // DONE PUBLIC
         
     };
-    // DONE MODULE: valuesModule( html element id: callerId, 
-    //                            named array: options ) named array 
+    // DONE MODULE: valuesModule( named array: options ) named array 
     
 })( textAnimation );
 // done create module function

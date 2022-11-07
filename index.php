@@ -2,23 +2,25 @@
 /*
     @package    SiteAnimator\Animations\TextAnimation
 
-    file:       index.html
+    file:       index.php
     function:   Demonstrates a text animation created with Javascript modules.
 
     author:     Rob Wolters
-    company:    SiteAnimator
+    company:    Site Animator
     email:      info@siteanimator.nl
     liscence:   GNU GENERAL PUBLIC LICENSE Version 3
 
-    Last revision:  17-10-2022
+    Last revision:  07-11-2022
   
 */
 
 // create version
-$version = '00003';
+$version = '00005';
 
+// add mobile detect
 require_once './php/MobileDetect.php';
 
+// create mobile detect
 $mobileDetect = new MobileDetect();
 
 // is mobile
@@ -43,8 +45,8 @@ $isMobile = $mobileDetect->isMobile();
                 margin: 0;
                 background-color: black;
                 color: DarkGreen;
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 22px;
+                line-height: 26px;
             }
             a:link {
                 color: MediumAquaMarine;
@@ -70,15 +72,15 @@ $isMobile = $mobileDetect->isMobile();
         <div class='animationDiv' id='animationDiv'>&nbsp;
         </div>
         
-        <div style='padding-top: 20px;max-width: 800px; margin: 0 auto;'>
+        <div style='padding: 20px;max-width: 800px; margin: 0 auto;'>
             This is an example in the series of modules created for the Site Animator project.<br>
         </div>
 
-        <div style='padding-top: 40px;max-width: 800px; margin: 0 auto;'>
+        <div style='padding: 40px;max-width: 800px; margin: 0 auto;'>
             <img src="logo.png" alt="Site Animator">
         </div>
         
-        <div style='padding-top: 40px;max-width: 800px; margin: 0 auto;'>
+        <div style='padding: 40px;max-width: 800px; margin: 0 auto;'>
             
             <a href='https://siteanimator.nl/en/blog'>Learn more about Javascript modules.</a><br>
             <br>
@@ -111,10 +113,10 @@ $isMobile = $mobileDetect->isMobile();
     
     // add debug options    
     textAnimation.options.debug = {
-        'on'            : true,
+        'on'            : false,
         'layoutOptions' : {
             'zIndex'    : 8000,
-            'top'       : 480,
+            'top'       : 180,
             'left'      : 120,
             'width'     : 400,
             'height'    : 300        
@@ -122,10 +124,20 @@ $isMobile = $mobileDetect->isMobile();
     };
     // add debug options
 
-<?php 
-        // add animations
-        require_once './assets/animations/presentation/presentation.php';
-?>        
+    // create animation options
+    textAnimation.animationOptions = {
+        'files' : [
+            './assets/animations/presentation/intro/showText/changeBackground.php',
+            './assets/animations/presentation/intro/showText/createText.php',
+            './assets/animations/presentation/intro/showText/moveText.php',
+            './assets/animations/presentation/intro/showText/removeText.php'
+        ],
+        'repeatOptions' : {
+            'repeat'    :   'forever',
+            'from'      :   'createT1'
+        }
+    };
+    // create animation options
 
     // add window onload event
     window.onload = function(){
@@ -142,6 +154,7 @@ $isMobile = $mobileDetect->isMobile();
 </script>
 
 <script src="main.js<?php echo '?version=' . $version; ?>"></script>
+
 <script src="./service/debugModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/htmlGeneratorModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/extendModule.js<?php echo '?version=' . $version; ?>"></script>
@@ -149,13 +162,17 @@ $isMobile = $mobileDetect->isMobile();
 <script src="./service/setStyleModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/getElementModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/eventManagerModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./service/jsonLoaderModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/animations/playerModule.js<?php echo '?version=' . $version; ?>"></script>
 
 <script src="./ui/buttonModule.js<?php echo '?version=' . $version; ?>"></script>
 
+<script src="./animations/animationsModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./animations/text/textModule.js<?php echo '?version=' . $version; ?>"></script>
-<script src="./animations/text/animateModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./animations/text/valuesModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./animations/text/animate/animateModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./animations/text/animate/transformModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./animations/text/animate/colorModule.js<?php echo '?version=' . $version; ?>"></script>
 
 <script src="./content/contentModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./content/animation/animationModule.js<?php echo '?version=' . $version; ?>"></script>

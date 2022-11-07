@@ -15,69 +15,44 @@
 
 {                                               
     'createElement'         :   true,           
-    'text'                  :   'Hello',  
-    'elementOptions' : {
-        'color'             :   'blue',
-        'fontSize'          :   '66px',
-        'padding'           :   '25px 23px 23px 23px',
-        'borderRadius'      :   '50%',
-        'backgroundColor'   :   'orange'
+    'text'                  :   'Hello',           
+    'containerOptions' : {
+        'backgroundColor'   :   'green'
     },
-    'id'                    :   'showHello',     
-    'target'                :   'hello',         
+    'textOptions' : {
+        'backgroundColor'   :   'red'
+    },
+    'id'                    :   'backgroundShowGreen',     
+    'target'                :   'backgroundGreen',         
     'trigger' : {                               
         'itemId'            :   'opacity',      
         'at'                :   0,              
         'show'              :   true,              
-        'playNext'          :   true,              
+//        'playNext'          :   true,              
     },                                          
     'startDelay'            :   1,             
     'duration'              :   35, 
     'items' : {                                 
         'opacity' : {                           
-            'path'          :   '0,1' 
+            'path'          :   '1' 
         },                                      
-        'parentTop' : {                         
-            'position'      :   'bottom',       
-            'path'          :   '49' 
+        'parentWidth' : {                         
+            'path'          :   '0,100' 
         },                                      
-        'parentLeft' : {                        
-            'position'      :   'right',        
-            'path'          :   '49' 
-        }                                       
-    }                                           
-},
-{                                               
-    'id'                    :   'turnClockwise',     
-    'target'                :   'hello',         
-    'startDelay'            :   10,             
-    'duration'              :   70, 
-    'items' : {                                 
-        'rotate' : {                           
-            'path'          :   '0,360' 
+        'parentHeight' : {                        
+            'path'          :   '0,100' 
+        },                                      
+        'parentLeft' : {                         
+            'path'          :   '50,0' 
+        },                                      
+        'parentTop' : {                        
+            'path'          :   '50,0' 
+        },                                      
+        'textFit' : {                           
+            'path'          :   '90' 
         },                                      
     },                                           
-},
-{                                               
-    'id'                    :   'turnAntiClockwise',     
-    'target'                :   'hello',         
-    'startDelay'            :   10,             
-    'duration'              :   70, 
-    'items' : {                                 
-        'rotate' : {                           
-            'path'          :   '360,0' 
-        },                                      
-    },                                           
-},
-{                                               
-    'id'                    :   'hideHello',     
-    'target'                :   'hello',         
-    'startDelay'            :   10,             
-    'duration'              :   70, 
-    'items' : {                                 
-        'opacity' : {                           
-            'path'          :   '1,0' 
-        }                                       
-    },                                           
-    'removeElement'         : true,                                          
-}                                               
+//    'removeElement'         :   true,           
+}
+
+                                               

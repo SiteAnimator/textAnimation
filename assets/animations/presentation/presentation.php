@@ -9,14 +9,24 @@
         Last revision: 16-10-2022
  
 */  
-?>
 
+/*
+  
+ 
 // add repeat
     textAnimation.repeatAnimations = {
         'repeat'    :   'forever',
         'from'      :   'showT1'
     };
 // add repeat
+ 
+
+
+
+*/
+
+?>
+
 
 // add animations
 textAnimation.animations = [

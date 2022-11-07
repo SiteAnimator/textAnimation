@@ -22,7 +22,7 @@ foreach ( $textArray as $key => $options ) {
     {                                               
         'createElement'         :   true,           
         'text'                  :   '<?php echo $options['text']; ?>',         
-        'elementOptions' : {
+        'textOptions' : {
             'color'             :   'moccasin',
             'fontSize'          :   '36px'
         },
@@ -53,6 +53,9 @@ foreach ( $textArray as $key => $options ) {
             },                                      
             'parentLeft' : {                        
                 'path'          :   '120,16' 
+            },                                       
+            'parentHeight' : {                        
+                'path'          :   '16' 
             },                                       
             'left' : {                        
                 'path'          :   '<?php echo $options['left']; ?>' 
@@ -85,7 +88,7 @@ foreach ( $textArray as $key => $options ) {
 {                                               
     'createElement'         :   true,           
     'text'                  :   'n',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },
@@ -120,7 +123,7 @@ foreach ( $textArray as $key => $options ) {
 {                                               
     'createElement'         :   true,           
     'text'                  :   'i',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },

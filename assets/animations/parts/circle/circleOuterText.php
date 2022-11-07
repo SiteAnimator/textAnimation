@@ -49,7 +49,7 @@ foreach ( $textArray as $key => $options ) {
             },                                      
             'left' : {                        
                 'path'          :   '<?php echo $options['left'] . ',' . $options['left'] / 2; ?>, 0, 0, 0, 0, 0, 0, 0, 0, <?php echo $options['left'] / 1.5 . ',' .  $options['left'] ?>' 
-            },                                       
+            }                                       
         }                                           
     }
     

@@ -4,23 +4,19 @@
     file:       textModule.js
     function:   handels a text animation 
 
-    Last revision: 17-10-2022
+    Last revision: 24-10-2022
 
 */    
 
 // create module function
 ( function( textAnimation ){
         
-    // create name spaces
-    textAnimation.animations = textAnimation.animations ? textAnimation.animations : {};
+    // create name space
     textAnimation.animations.text = textAnimation.animations.text ? textAnimation.animations.text : {};
-    // create name spaces    
     
-    // MODULE: textModule( html element id: callerId, 
-    //                     named array / undefined: options, 
+    // MODULE: textModule( named array / undefined: options, 
     //                     named array / undefined: callbacks ) named array         
-    textAnimation.animations.text.textModule = function( callerId,
-                                                         options,
+    textAnimation.animations.text.textModule = function( options,
                                                          callbacks) {
         // PRIVATE:
 
@@ -28,7 +24,6 @@
         var self = this;                                    // object
         self.debugOn = true;                               // boolean
         self.MODULE = 'AnimationsTextModule';              // string
-        self.callerId = callerId;                           // html element id
         self.options = options;                             // named array / undefined 
         self.callbacks = callbacks;                         // named array / undefined 
         self.animationOptions = {};                         // named array
@@ -58,8 +53,7 @@
             let valuesModule = textAnimation.animations.text.valuesModule;
 
             // create module
-            self.modules['values'] = new valuesModule( self.callerId,
-                                                       self.options );
+            self.modules['values'] = new valuesModule( self.options );
 
         // DONE FUNCTION: createValues( void ) void
         };
@@ -67,12 +61,10 @@
         // FUNCTION: createAnimate( void ) void
 
             // get animate module
-            let animateModule = textAnimation.animations.text.animateModule;
+            let animateModule = textAnimation.animations.text.animate.animateModule;
 
             // create module
-            self.modules['animate'] = new animateModule( self.callerId,
-                                                         self.options );
-            // create module
+            self.modules['animate'] = new animateModule( self.options );
 
         // DONE FUNCTION: createAnimate( void ) void
         };
@@ -112,12 +104,9 @@
             // animation ! ready
             if( !animationOptions['ready'] ){
 
-                // get direction
-                let direction = animationOptions['direction'];
-
                 // create options
                 let options = {
-                    'frameDelay'    :   self.modules['values'].getDelay( direction ),
+                    'frameDelay'    :   self.modules['values'].getDelay( ),
                     'callback'      :   self.animate
                 };
                 // create options
@@ -139,11 +128,11 @@
             // update values
             self.modules['values'].updateValues( );
                 
-            // animate caller
-            self.animateCaller();
-            
             // check trigger
             self.checkTrigger( );
+            
+            // animate caller
+            self.animateCaller();
             
             // ! ready
             if( !self.modules['values'].isReady( ) ){
@@ -369,8 +358,7 @@
         // DONE PUBLIC
         
     };
-    // DONE MODULE: textModule( html element id: callerId, 
-    //                          named array / undefined: options, 
+    // DONE MODULE: textModule( named array / undefined: options, 
     //                          named array / undefined: callbacks ) named array 
     
 })( textAnimation );

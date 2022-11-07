@@ -25,9 +25,9 @@
         self.moduleName = 'ContentAnimationModule';         // string
         self.debugOn = true;                                // boolean
         self.parentId = parentId;                           // html element id
-        self.animations = textAnimation.animations;         // array
+        self.animations = null;                             // array / null
         self.animationIndex = 0;                            // integer
-        self.repeatAnimationsOptions = {                    // named array
+        self.repeatOptions = {                              // named array
             'repeated'              :   0,                  // integer
         };                                                  // done named array
         self.modules = {};                                  // named array
@@ -39,13 +39,27 @@
             
             self.debug( 'module construct' );
  
+            // create animations
+            self.createAnimations();
+ 
             // create elements
             self.createElements();
  
-            // start
-            self.start();
- 
+            // load animations
+            self.modules['animations'].load( self.start );
+            
         // DONE FUNCTION: construct( void ) void
+        };
+        self.createAnimations = function() {
+        // FUNCTION: createAnimations( void ) void
+
+            // get animations module
+            let animationsModule = textAnimation.animations.animationsModule;
+            
+            // create animations module
+            self.modules['animations'] = new animationsModule( );
+
+        // DONE FUNCTION: createAnimations( void ) void
         };
         self.createElements = function() {
         // FUNCTION: createElements( void ) void
@@ -67,21 +81,12 @@
 
         // DONE FUNCTION: createElements( void ) void
         };
-        self.start = function() {
-        // FUNCTION: start( void ) void
-        
-            // are all animations played
-            if( self.areAllAnimationsPlayed() ){
-                      
-                // debug info
-                self.debug( 'No animations found!' );
-                      
-                // done
-                return;
-                
-            }
-            // are all animations played
-            
+        self.start = function( animations ) {
+        // FUNCTION: start( named array: animations ) void
+ 
+            // set animations
+            self.animations = animations;
+ 
             // get current animation
             let animationOptions = self.animations[self.animationIndex]; 
 
@@ -94,10 +99,19 @@
             // create animation
             let animation = self.modules['elements'].createAnimation( animationOptions );
 
+            // create failed
+            if( !animation ){
+
+                // done
+                return;
+                
+            }
+            // create failed
+
             // start animation
             animation.start( );
 
-        // DONE FUNCTION: start( void ) void
+        // DONE FUNCTION: start( named array: animations ) void
         };
         self.trigger = function( options ) {
         // FUNCTION: trigger( named array: options ) void
@@ -142,7 +156,8 @@
             self.modules['elements'].removeElement( options );
             
             // was triggered
-            if( options['triggered'] ){
+            if( options['triggered'] &&
+                !self.modules.elements.allAnimationsPlayed() ){
                 
                 // done
                 return;
@@ -232,6 +247,15 @@
             // create animation
             let animation = self.modules['elements'].createAnimation( animationOptions );
 
+            // create failed
+            if( !animation ){
+
+                // done
+                return;
+                
+            }
+            // create failed
+
             // set values
             self.modules['elements'].setValues( animationOptions );
             
@@ -251,7 +275,8 @@
         // FUNCTION: repeatAnimations( void ) void
             
             // repeat animations ! set
-            if( !textAnimation.repeatAnimations ){
+            if( !textAnimation.animationOptions ||
+                !textAnimation.animationOptions['repeatOptions'] ){
                 
                 // done
                 return;
@@ -259,14 +284,17 @@
             }
             // repeat animations ! set
 
+            // get repeat options
+            let repeatOptions = textAnimation.animationOptions['repeatOptions'];
+
             // get repeat
-            let repeat = textAnimation.repeatAnimations['repeat'] ?
-                         textAnimation.repeatAnimations['repeat'] :
+            let repeat = repeatOptions['repeat'] ?
+                         repeatOptions['repeat'] :
                          0;
             // get repeat
             
             // get repeated
-            let repeated = self.repeatAnimationsOptions['repeated'];
+            let repeated = self.repeatOptions['repeated'];
             
             // repeat ! forever or > repeated
             if( repeat !== 'forever' ||
@@ -279,11 +307,11 @@
             // repeat ! forever or > repeated
             
             // update repeated
-            self.repeatAnimationsOptions['repeated']++;
+            self.repeatOptions['repeated']++;
             
             // get from
-            let from = textAnimation.repeatAnimations['from'] ?
-                       self.getAnimationIndexFromId( textAnimation.repeatAnimations['from'] ):
+            let from = repeatOptions['from'] ?
+                       self.getAnimationIndexFromId( repeatOptions['from'] ):
                        0;
             // get from
             
@@ -293,8 +321,20 @@
                                   0;
             // reset index
             
-            // start 
-            self.start( );
+            // get current animation
+            let animationOptions = self.animations[self.animationIndex]; 
+
+            // set index
+            animationOptions['index'] = self.animationIndex;
+
+            // create element
+            self.modules['elements'].createElement( animationOptions );
+            
+            // create animation
+            let animation = self.modules['elements'].createAnimation( animationOptions );
+
+            // start animation
+            animation.start( );
 
         // DONE FUNCTION: repeatAnimations( void ) void
         };
@@ -344,6 +384,8 @@
         self.layoutChange = function() {
         // FUNCTION: layoutChange( void ) void
             
+            // call alements
+            self.modules['elements'].layoutChange(  );
             
         // DONE FUNCTION: layoutChange( void ) void
         };

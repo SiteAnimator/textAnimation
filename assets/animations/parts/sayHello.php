@@ -14,7 +14,7 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   'Hello',  
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '66px',
         'padding'           :   '25px 23px 23px 23px',
@@ -36,11 +36,9 @@
             'path'          :   '0,1' 
         },                                      
         'parentTop' : {                         
-            'position'      :   'bottom',       
             'path'          :   '49' 
         },                                      
         'parentLeft' : {                        
-            'position'      :   'right',        
             'path'          :   '49' 
         }                                       
     }                                           

@@ -14,7 +14,7 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   'A',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },
@@ -37,6 +37,9 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12' 
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
@@ -46,9 +49,9 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   'n',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
-        'fontSize'          :   '36px'
+        'fontSize'          :   '36px',
     },
     'id'                    :   'showN1',     
     'target'                :   'n1',         
@@ -75,6 +78,9 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
@@ -84,7 +90,7 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   'i',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },
@@ -110,6 +116,9 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
@@ -119,7 +128,7 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   'm',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },
@@ -148,6 +157,9 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
@@ -157,7 +169,7 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   'a',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },
@@ -183,6 +195,9 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
@@ -192,7 +207,7 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   't',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },
@@ -218,6 +233,9 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
@@ -227,7 +245,7 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   'i',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },
@@ -253,6 +271,9 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
@@ -262,7 +283,7 @@
 {                                               
     'createElement'         :   true,           
     'text'                  :   'o',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },
@@ -288,16 +309,19 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12',
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 
-        }                                       
+        }                                      
     }                                           
 },                                               
 {                                               
     'createElement'         :   true,           
     'text'                  :   'n',         
-    'elementOptions' : {
+    'textOptions' : {
         'color'             :   'moccasin',
         'fontSize'          :   '36px'
     },
@@ -322,6 +346,9 @@
         },                                      
         'parentLeft' : {                        
             'path'          :   '12'
+        },                                      
+        'parentHeight' : {                        
+            'path'          :   '20' 
         },                                       
         'alignTop' : {                         
             'path'          :   '100' 

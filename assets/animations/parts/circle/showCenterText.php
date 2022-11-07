@@ -14,12 +14,14 @@
 
 {                                               
     'createElement'         :   true,           
-    'text'                  :   'Text',         
-    'elementOptions' : {
-        'color'             :   'blue',
-        'fontSize'          :   '57px',
+    'containerOptions' : {
         'display'           :   'block',
         'opacity'           :   0
+    },
+    'text'                  :   'Text',         
+    'textOptions' : {
+        'color'             :   'blue',
+        'fontSize'          :   '57px',
     },
     'id'                    :   'showText',     
     'target'                :   'text',         

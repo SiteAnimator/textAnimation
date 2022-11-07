@@ -2,9 +2,10 @@
     @package    SiteAnimator\Animations\TextAnimation
 
     file:       elementsModule.js
-    function:   Handles the html elements of the animation module 
+    function:   creates and removes html elements 
+                and attaches animations to the elements. 
   
-    Last revision: 17-10-2022
+    Last revision: 01-11-2022
  
 */
 
@@ -19,11 +20,11 @@
         
         // MEMBERS
         var self = this;                                    // object
-        self.moduleName = 'ContentAnimationElementsModule'; // string
+        self.moduleName = 'AnimationElementsModule';        // string
         self.debugOn = true;                                // boolean
         self.parentId = parentId;                           // html element id
         self.callbacks = callbacks;                         // named array
-        self.elementOptions = {                             // named array 
+        self.containerOptions = {                           // named array 
             'element'               :   'div',              // html element type 
             'display'               :   'none',             // css
             'position'              :   'absolute',         // css
@@ -57,7 +58,7 @@
             if( !options['target'] ){
                 
                 // debug info
-                self.debug( 'create element target ! set.' );
+                self.debug( 'create element error target ! set.' );
                 
                 // done 
                 return;
@@ -74,31 +75,48 @@
                                     {};
             // create element
             
-            // copy element options
-            let elementOptions = textAnimation.extend( {}, self.elementOptions );
+            // get element
+            let element = self.elements[target];
+
+            // container exists
+            if( textAnimation.getElementById( element['containerId'] ) ){
+
+                // done
+                return;
+
+            }
+            // container exists
+
+            // create container
+            element['containerId'] = self.createContainer( target, options );
+                        
+        // DONE FUNCTION: createElement( named array: options ) void
+        };
+        self.createContainer = function( target, options ) {
+        // FUNCTION: createContainer( string: target, named array: options ) html element id
+
+            // copy container options
+            let containerOptions = textAnimation.extend( {}, self.containerOptions );
 
             // has specific options
-            if( options['elementOptions'] ){
+            if( options['containerOptions'] ){
                 
                 // extend options
-                elementOptions = textAnimation.extend( elementOptions, options['elementOptions'] );
+                containerOptions = textAnimation.extend( containerOptions, options['containerOptions'] );
                 
             }
             // has specific options
 
             // set id
-            elementOptions['id'] = textAnimation.getUiId( self.moduleName + target ); 
-            
-            // set text
-            elementOptions['text'] = options['text']; 
+            containerOptions['id'] = textAnimation.getUiId( self.moduleName + 'Container' + target ); 
             
             // create html
-            textAnimation.appendContainer( self.parentId, elementOptions );
+            textAnimation.appendContainer( self.parentId, containerOptions );
 
-            // save element
-            self.elements[target]['elementId'] = elementOptions['id'];
+            // return container id
+            return containerOptions['id'];
             
-        // DONE FUNCTION: createElement( named array: options ) void
+        // DONE FUNCTION: createContainer( string: target, named array: options ) html element id
         };
         self.removeElement = function( options ) {
         // FUNCTION: removeElement( named array: options ) void
@@ -126,6 +144,9 @@
 
             // get element
             let element = self.elements[target];
+        
+            // remove html
+            self.removeHtml( element );
             
             // has animation
             if( element['animation'] ){
@@ -136,13 +157,24 @@
             }
             // has animation
 
-            // remove html
-            textAnimation.getElementById( element['elementId'] ).remove();
-            
             // unset element
             delete self.elements[target];
 
         // DONE FUNCTION: removeElement( named array: options ) void
+        };
+        self.removeHtml = function( element ) {
+        // FUNCTION: removeHtml( named array: element ) void
+
+            // container exists
+            if( textAnimation.getElementById( element['containerId'] ) ){
+
+                // remove container
+                textAnimation.getElementById( element['containerId'] ).remove();
+
+            }
+            // container exists
+                
+        // DONE FUNCTION: removeHtml( named array: element ) void
         };
         self.createAnimation = function( options ) {
         // FUNCTION: createAnimation( named array: options ) module
@@ -150,8 +182,8 @@
             // target ! valid
             if( !self.validateTargetElement( 'create animation', options ) ){
                 
-                // done 
-                return;
+                // return create failed
+                return null;
                 
             }
             // target ! valid
@@ -159,11 +191,11 @@
             // get target
             let target = options['target'];
 
-            // get element id
-            let elementId = self.elements[target]['elementId']; 
-
             // remove animation
             self.removeAnimation( target );
+
+            // get element
+            let element = self.elements[target];
 
             // get animation module
             let animationModule = textAnimation.animations.text.textModule;
@@ -178,17 +210,19 @@
             // add parent id
             options['parentId'] = self.parentId;
 
+            // add container id
+            options['containerId'] = element['containerId'];
+
             // set ! triggered
             options['triggered'] = false;
 
             // create animation
-            let animation = new animationModule( elementId,
-                                                 options,
+            let animation = new animationModule( options,
                                                  callbacks );
             // create animation
             
             // save animation
-            self.elements[target]['animation'] = animation;
+            element['animation'] = animation;
 
             // return result
             return animation;
@@ -291,7 +325,7 @@
             // element exists
 
             // debug info
-            self.debug( caller + ' target element ! found: ' + target );
+            self.debug( caller + 'element ! found target: ' + options['target'] );
                 
             // return ! valid
             return false;
@@ -313,11 +347,11 @@
             // get target
             let target = options['target'];
 
-            // get element id
-            let elementId = self.elements[target]['elementId']; 
+            // get container id
+            let containerId = self.elements[target]['containerId']; 
 
             // show text
-            textAnimation.setStyle( elementId , 'display', 'table' ); 
+            textAnimation.setStyle( containerId , 'display', 'table' ); 
          
         // DONE FUNCTION: show( named array: options ) void
         };
@@ -343,6 +377,15 @@
         };
         self.setValues = function( options ) {
         // FUNCTION: setValues( named array: options ) void
+
+            // target ! valid
+            if( !self.validateTargetElement( 'setValues', options ) ){
+                
+                // done 
+                return;
+                
+            }
+            // target ! valid
             
             // get target
             let target = options['target'];
@@ -424,8 +467,14 @@
             // loop over elements
             Object.entries( self.elements ).forEach( ( [key, element] ) => {
 
-                // remove html
-                textAnimation.getElementById( element['elementId'] ).remove();
+                // container exists
+                if( textAnimation.getElementById( element['containerId'] ) ){
+                    
+                    // remove container
+                    textAnimation.getElementById( element['containerId'] ).remove();
+
+                }
+                // container exists
 
             });
             // loop over elements

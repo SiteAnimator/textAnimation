@@ -32,7 +32,7 @@ for ( $column = 0; $column < $columns; $column++ ) {
     {                                               
         'createElement'         :   true,           
         'text'                  :   '<?php echo $textArray[$column]; ?>',  
-        'elementOptions' : {
+        'containerOptions' : {
             'color'             :   'blue',
             'fontSize'          :   '36px',
             'padding'           :   '14px 12px 12px 12px',

@@ -26,7 +26,7 @@ for ( $i = 0; $i < count( $textArray ); $i++ ) {
 {                                               
     'createElement'         :   true,           
     'text'                  :   '<?php echo $textArray[$i]; ?>',  
-    'elementOptions' : {
+    'containerOptions' : {
         'color'             :   'blue',
         'fontSize'          :   '36px',
         'padding'           :   '14px 12px 12px 12px',

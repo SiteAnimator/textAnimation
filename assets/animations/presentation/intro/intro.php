@@ -14,5 +14,5 @@
 
 <?php
 
-require_once './assets/animations/presentation/intro/sayHello.php';
+require_once './assets/animations/presentation/intro/showText/showText.php';
 

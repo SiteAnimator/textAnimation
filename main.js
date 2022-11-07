@@ -64,6 +64,9 @@
             // create event manager module
             self.modules.eventManager = new textAnimation.service.eventManagerModule( );
 
+            // create json loader module
+            self.modules.jsonLoaderManager = new textAnimation.service.jsonLoaderModule( );
+
             // create animation services
             self.createAnimationServices();
 
@@ -91,6 +94,9 @@
 
             // create content module
             self.modules.content = new contentModule();
+
+            // start animation
+            self.modules.content.startAnimation();
 
         // DONE FUNCTION: createContent( void ) void
         };
