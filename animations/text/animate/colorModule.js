@@ -4,7 +4,7 @@
     file:       colorModule.js
     function:   handels the color transformations of the animations.
 
-    Last revision: 01-11-2022
+    Last revision: 08-11-2022
  
 */    
 
@@ -16,8 +16,8 @@
         // PRIVATE:
 
         // MEMBERS:
-        var self = this;                                    // object
-        self.debugOn = true;                                // boolean
+        let self = this;                                    // object
+        self.debugOn = false;                                // boolean
         self.MODULE = 'AnimationsTextAnimateColorModule';   // string
         self.options = options;                             // named array / undefined 
         self.containerId = options['containerId'];          // html element id
@@ -41,17 +41,26 @@
             // animate background rgb
             self.animateBackgroundRgb( values );
             
+            // animate border rgb
+            self.animateBorderRgb( values );
+            
             // animate hsl
             self.animateHsl( values );
             
             // animate background hsl
             self.animateBackgroundHsl( values );
             
+            // animate border hsl
+            self.animateBorderHsl( values );
+            
             // animate color
             self.animateColor( values );
             
             // animate background color
             self.animateBackgroundColor( values );
+            
+            // animate border color
+            self.animateBorderColor( values );
             
         // DONE FUNCTION: animate( named array: values ) void
         };
@@ -136,6 +145,38 @@
             
         // DONE FUNCTION: animateBackgroundRgb( named array: values ) void
         };
+        self.animateBorderRgb = function( values ) {
+        // FUNCTION: animateBorderRgb( named array: values ) void
+
+            // border rgb ! exists
+            if( !values['borderColorR'] && 
+                !values['borderColorG'] && 
+                !values['borderColorB'] ){
+
+                // done
+                return;
+                
+            }
+            // border rgb ! exists
+            
+            // get values
+            let rValue = values['borderColorR'] ? values['borderColorR']['value'] : 0;
+            let gValue = values['borderColorG'] ? values['borderColorG']['value'] : 0;
+            let bValue = values['borderColorB'] ? values['borderColorB']['value'] : 0;
+            // get values
+            
+            // create color
+            let color = 'rgb(' +
+                        parseInt( rValue ) + ',' +
+                        parseInt( gValue ) + ',' +
+                        parseInt( bValue ) + ')';
+            // create color
+            
+            // set color
+            textAnimation.setStyle( self.containerId, 'border-color', color ); 
+            
+        // DONE FUNCTION: animateBorderRgb( named array: values ) void
+        };
         self.animateHsl = function( values ) {
         // FUNCTION: animateHsl( named array: values ) void
 
@@ -200,6 +241,38 @@
             
         // DONE FUNCTION: animateBackgroundHsl( named array: values ) void
         };
+        self.animateBorderHsl = function( values ) {
+        // FUNCTION: animateBorderHsl( named array: values ) void
+
+            // border hsl ! exists
+            if( !values['borderColorH'] && 
+                !values['borderColorS'] && 
+                !values['borderColorL'] ){
+
+                // done
+                return;
+                
+            }
+            // border hsl ! exists
+            
+            // get values
+            let hValue = values['borderColorH'] ? values['borderColorH']['value'] : 0;
+            let sValue = values['borderColorS'] ? values['borderColorS']['value'] : 0;
+            let lValue = values['borderColorL'] ? values['borderColorL']['value'] : 0;
+            // get values
+            
+            // create color
+            let color = 'hsl(' +
+                        parseInt( hValue ) + ',' +
+                        parseInt( sValue ) + ',' +
+                        parseInt( lValue ) + ')';
+            // create color
+            
+            // set color
+            textAnimation.setStyle( self.containerId, 'border-color', color ); 
+            
+        // DONE FUNCTION: animateBorderHsl( named array: values ) void
+        };
         self.animateColor = function( values ) {
         // FUNCTION: animateColor( named array: values ) void
 
@@ -239,6 +312,26 @@
             textAnimation.setStyle( self.containerId, 'background-color', color ); 
             
         // DONE FUNCTION: animateBackgroundColor( named array: values ) void
+        };
+        self.animateBorderColor = function( values ) {
+        // FUNCTION: animateBorderColor( named array: values ) void
+
+            // border rgb ! exists
+            if( !values['borderColor'] ){
+
+                // done
+                return;
+                
+            }
+            // border rgb ! exists
+            
+            // create color
+            let color = values['borderColor']['value'];
+            
+            // set color
+            textAnimation.setStyle( self.containerId, 'border-color', color ); 
+            
+        // DONE FUNCTION: animateBorderColor( named array: values ) void
         };
         self.destruct = function() {
         // FUNCTION: destruct( void ) void

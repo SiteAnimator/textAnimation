@@ -4,7 +4,7 @@
     file:       transformModule.js
     function:   handels the transforms of the animations.
 
-    Last revision: 01-11-2022
+    Last revision: 08-11-2022
  
 */    
 
@@ -16,8 +16,8 @@
         // PRIVATE:
 
         // MEMBERS:
-        var self = this;                                    // object
-        self.debugOn = true;                                // boolean
+        let self = this;                                    // object
+        self.debugOn = false;                                // boolean
         self.MODULE = 'AnimationsTextAnimateTransformModule'; // string
         self.options = options;                             // named array / undefined 
         self.containerId = options['containerId'];          // html element id
@@ -378,6 +378,9 @@
             // get rotate transforms
             transform += self.getRotateTransform( values );
             
+            // get skew transforms
+            transform += self.getSkewTransform( values );
+            
             // set style
             textAnimation.setStyle( self.containerId , 'transform', transform ); 
 
@@ -386,28 +389,117 @@
         self.getRotateTransform = function( values ) {
         // FUNCTION: getRotateTransform( named array: values ) string
             
-            // rotate ! exists
-            if( !values['rotate'] ){
-                
-                // done
-                return '';
-                
-            }   
-            // rotate ! exists
-
             // create transform
             let transform = '';
                 
             // add rotate
-            transform += 'rotate( ' + 
-                            parseInt( values['rotate']['value'] ) +
-                         'deg ) ';
+            transform += self.getRotate( 'rotate', values );
+                
             // add rotate
+            transform += self.getRotate( 'rotateX', values );
+                
+            // add rotate
+            transform += self.getRotate( 'rotateY', values );
+                
+            // add rotate
+            transform += self.getRotate( 'rotateZ', values );
                 
             // return result
             return transform;
             
         // DONE FUNCTION: getRotateTransform( named array: values ) string
+        };
+        self.getRotate = function( itemId, values ) {
+        // FUNCTION: getRotate( string: itemId, named array: values ) string
+            
+            // item id ! exists
+            if( !values[itemId] ){
+                
+                // done
+                return '';
+                
+            }   
+            // item id ! exists
+
+            // create transform
+            let transform = '';
+                
+            // get units
+            let units = self.getUnits( itemId, values, 'deg' );
+                
+            // add rotate
+            transform += itemId + '( ' + 
+                            parseInt( values[itemId]['value'] ) +
+                         units + ' ) ';
+            // add rotate
+                
+            // return result
+            return transform;
+            
+        // DONE FUNCTION: getRotate( string: itemId, named array: values ) string
+        };
+        self.getSkewTransform = function( values ) {
+        // FUNCTION: getSkewTransform( named array: values ) string
+            
+            // create transform
+            let transform = '';
+                
+            // add rotate
+            transform += self.getSkew( 'skew', values );
+                
+            // add rotate
+            transform += self.getSkew( 'skewX', values );
+                
+            // add rotate
+            transform += self.getSkew( 'skewY', values );
+                
+            // return result
+            return transform;
+            
+        // DONE FUNCTION: getSkewTransform( named array: values ) string
+        };
+        self.getSkew = function( itemId, values ) {
+        // FUNCTION: getSkew( string: itemId, named array: values ) string
+            
+            // item id ! exists
+            if( !values[itemId] ){
+                
+                // done
+                return '';
+                
+            }   
+            // item id ! exists
+
+            // create transform
+            let transform = '';
+                
+            // get units
+            let units = self.getUnits( itemId, values, 'deg' );
+                
+            // add rotate
+            transform += itemId + '( ' + 
+                            parseInt( values[itemId]['value'] ) +
+                         units + ' ) ';
+            // add rotate
+                
+            // return result
+            return transform;
+            
+        // DONE FUNCTION: getSkew( string: itemId, named array: values ) string
+        };
+        self.getUnits = function( itemId, values, defaultValue ) {
+        // FUNCTION: getUnits( string: itemId, named array: values, string: defaultValue ) string
+            
+            // get units
+            let units = values[itemId]['units'] ?
+                        values[itemId]['units'] :
+                        defaultValue;
+            // get units
+
+            // return result
+            return units;
+
+        // DONE FUNCTION: getUnits( string: itemId, named array: values, string: defaultValue ) string
         };
         self.destruct = function() {
         // FUNCTION: destruct( void ) void

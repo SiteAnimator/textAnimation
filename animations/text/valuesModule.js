@@ -5,7 +5,7 @@
     function:   initializes, updates and evaluates the values 
                 for the text animation. 
 
-    Last revision: 17-10-2022
+    Last revision: 08-11-2022
 
 */    
 
@@ -17,7 +17,7 @@
         // PRIVATE:
 
         // MEMBERS:
-        var self = this;                                    // object
+        let self = this;                                    // object
         self.debugOn = false;                               // boolean
         self.MODULE = 'AnimationsTextValuesModule';         // string
         self.options = options;                             // named array / undefined 
@@ -249,14 +249,43 @@
 
             }
             // from is string
-                        
+
+            // has effect
+            if( item['effect'] ){
+                
+                // get effect
+                self.calculateEffect( steps, step, to, item );
+                
+                // done
+                return;
+
+            }
+            // has effect
+            
             // calculate distance
             let distance = ( ( to - from ) / stepsPerPathStep ) * ( stepDistance + 1 );
             
             // calculate value
-            item['value'] = from + distance;
-            
+            item['value'] = step === steps - 1 ?
+                            to : 
+                            from + distance;
+            // calculate value
+
         // DONE FUNCTION: calculatePathValue( named array: item ) void
+        };
+        self.calculateEffect = function( steps, step, to, item ) {
+        // FUNCTION: calculateEffect( integer: steps, integer: step, integer: to, named array: item ) float
+
+            // calculate effect
+            let effect = textAnimation.calculateEffect( steps, step, item );
+
+            // calculate value
+            item['value'] = step === steps - 1 ?
+                            to : 
+                            effect;
+            // calculate value
+            
+        // DONE FUNCTION: calculateEffect( integer: steps, integer: step, integer: to, named array: item ) float
         };
         self.getValues = function( ) {
         // FUNCTION: getValues( void ) named array

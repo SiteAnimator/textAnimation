@@ -5,7 +5,7 @@
     function:   creates a HTML element and handels the events
                 handles state changes
 
-    Last revision: 14-09-2022
+    Last revision: 08-11-2022
  
 */    
 
@@ -25,7 +25,7 @@
         // PRIVATE:
 
         // MEMBERS:
-        var self = this;                                    // object
+        let self = this;                                    // object
         self.debugOn = false;                               // boolean
         self.MODULE = 'buttonModule';                       // string
         self.parentId = parentId;                           // html element id

@@ -5,7 +5,7 @@
     function:   creates and removes html elements 
                 and attaches animations to the elements. 
   
-    Last revision: 01-11-2022
+    Last revision: 08-11-2022
  
 */
 
@@ -20,8 +20,8 @@
         
         // MEMBERS
         var self = this;                                    // object
-        self.moduleName = 'AnimationElementsModule';        // string
-        self.debugOn = true;                                // boolean
+        self.moduleName = 'ContentAnimationElementsModule'; // string
+        self.debugOn = false;                               // boolean
         self.parentId = parentId;                           // html element id
         self.callbacks = callbacks;                         // named array
         self.containerOptions = {                           // named array 
@@ -37,9 +37,6 @@
         self.construct = function() {
         // FUNCTION: construct( void ) void
             
-            // debug
-            self.debug( 'module construct' );
- 
         // DONE FUNCTION: construct( void ) void
         };
         self.createElement = function( options ) {

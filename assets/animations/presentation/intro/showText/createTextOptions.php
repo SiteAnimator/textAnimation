@@ -23,7 +23,7 @@ $textArray = array(
         'portretHeight'     =>  '0, 25',                                 
         'portretLeft'       =>  '50, 37.5',                                 
         'portretTop'        =>  '50, 0',                                 
-        'rotate'            =>  '0, 360'
+        'rotate'            =>  '0, 20, -20, 0, 2, -2, 0'
     ),
     'e' => array(
         'text'              => 'e',                                 
@@ -36,7 +36,7 @@ $textArray = array(
         'portretHeight'     =>  '0, 25',                                 
         'portretLeft'       =>  '50, 37.5',                                 
         'portretTop'        =>  '50, 25',                                 
-        'rotate'            =>  '0, 360'
+        'rotate'            =>  '0, 20, -20, 0, 2, -2, 0'
     ),
     'x' => array(
         'text'              => 'x',                                 
@@ -49,7 +49,7 @@ $textArray = array(
         'portretHeight'     =>  '0, 25',                                 
         'portretLeft'       =>  '50, 37.5',                                 
         'portretTop'        =>  '50, 50',                                 
-        'rotate'            =>  '0, 360'
+        'rotate'            =>  '0, 20, -20, 0, 2, -2, 0'
     ),
     't' => array(
         'text'              => 't',                                 
@@ -62,7 +62,7 @@ $textArray = array(
         'portretHeight'     =>  '0, 25',                                 
         'portretLeft'       =>  '50, 37.5',                                 
         'portretTop'        =>  '50, 75',                                 
-        'rotate'            =>  '0, 360'
+        'rotate'            =>  '0, 20, -20, 0, 2, -2, 0'
     )
 );
 

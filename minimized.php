@@ -11,18 +11,11 @@
         email:      info@siteanimator.nl
         liscence:   GNU GENERAL PUBLIC LICENSE Version 3
  
-    Last revision: 10-10-2022
+    Last revision: 08-11-2022
   
 */
 // create version
-$version = '00001';
-
-require_once './php/MobileDetect.php';
-
-$mobileDetect = new MobileDetect();
-
-// is mobile
-$isMobile = $mobileDetect->isMobile();    
+$version = '00002';
 
 ?>
 
@@ -101,18 +94,18 @@ $isMobile = $mobileDetect->isMobile();
     // add version
     textAnimation.version = '<?php echo $version; ?>';
 
-    // create mobile
-    textAnimation.isMobile = <?php echo $isMobile ? 'true' : 'false'; ?>;
-
     // add container id
     textAnimation.options.containerId = 'animationDiv';
     
+    // add frame rate
+    textAnimation.options.frameRate = 40;
+    
     // add debug options    
     textAnimation.options.debug = {
-        'on'            : true,
+        'on'            : false,
         'layoutOptions' : {
             'zIndex'    : 8000,
-            'top'       : 480,
+            'top'       : 180,
             'left'      : 120,
             'width'     : 400,
             'height'    : 300        
@@ -120,12 +113,20 @@ $isMobile = $mobileDetect->isMobile();
     };
     // add debug options
 
-<?php 
-
-        // add animations
-        require_once './assets/animations/intro.php';
-                        
-?>        
+    // create animation options
+    textAnimation.animationOptions = {
+        'files' : [
+            './assets/animations/presentation/intro/showText/changeBackground.php',
+            './assets/animations/presentation/intro/showText/createText.php',
+            './assets/animations/presentation/intro/showText/moveText.php',
+            './assets/animations/presentation/intro/showText/removeText.php'
+        ],
+        'repeatOptions' : {
+            'repeat'    :   'forever',
+            'from'      :   'createT1'
+        }
+    };
+    // create animation options
 
     // add window onload event
     window.onload = function(){
@@ -141,7 +142,7 @@ $isMobile = $mobileDetect->isMobile();
     
 </script>
 
-<script src="minimized.js"></script>
+<script src="minimized.js<?php echo '?version=' . $version; ?>"></script>
 
 
     </body>

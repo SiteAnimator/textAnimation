@@ -1,7 +1,7 @@
 /*
     @package    SiteAnimator\Animations\TextAnimation
 
-    file:       animationsModule.js
+    file:       loaderModule.js
     function:   loads the animations.
                 
   
@@ -15,15 +15,15 @@
     // create name space
     textAnimation.animations = textAnimation.animations ? textAnimation.animations : {};
     
-    // MODULE: animationsModule( void ) void 
-    textAnimation.animations.animationsModule = function( ) {
+    // MODULE: loaderModule( void ) void 
+    textAnimation.animations.loaderModule = function( ) {
         
         // PRIVATE:
         
         // MEMBERS
-        var self = this;                                    // object
-        self.moduleName = 'AnimationAnimationsModule';      // string
-        self.debugOn = true;                                // boolean
+        let self = this;                                    // object
+        self.moduleName = 'AnimationsLoaderModule';         // string
+        self.debugOn = false;                               // boolean
         self.animations = [];                               // array
         self.fileIndex = 0;                                 // integer
         self.callback = null;                               // function / null
@@ -33,8 +33,6 @@
         self.construct = function() {
         // FUNCTION: construct( void ) void
             
-            self.debug( 'module construct' );
- 
         // DONE FUNCTION: construct( void ) void
         };
         self.load = function( callback ) {
@@ -198,7 +196,7 @@
         // DONE PUBLIC
         
     };
-    // DONE MODULE: animationsModule( void ) void 
+    // DONE MODULE: loaderModule( void ) void 
     
 })( textAnimation );
 // done create module function

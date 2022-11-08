@@ -4,7 +4,7 @@
     file:       animateModule.js
     function:   animates an element.
 
-    Last revision: 01-11-2022
+    Last revision: 08-11-2022
  
 */    
 
@@ -22,8 +22,8 @@
         // PRIVATE:
 
         // MEMBERS:
-        var self = this;                                    // object
-        self.debugOn = true;                               // boolean
+        let self = this;                                    // object
+        self.debugOn = false;                               // boolean
         self.MODULE = 'AnimationsTextAnimateModule';        // string
         self.options = options;                             // named array / undefined 
         self.modules = {};                                  // named array                                                          
@@ -59,6 +59,18 @@
         self.animate = function( values ) {
         // FUNCTION: animate( named array: values ) void
             
+            // animate border
+            self.animateBorder( values );
+            
+            // set text
+            self.setText( values );
+            
+            // animate font
+            self.animateFont( values );
+            
+            // animate padding
+            self.animatePadding( values );
+            
             // create layout
             let layout = {};
             
@@ -80,45 +92,211 @@
             // set background
             self.setBackground( values );
             
-            // set text
-            self.setText( values );
+            // set background image
+            self.setBackgroundImage( values );
             
         // DONE FUNCTION: animate( named array: values ) void
         };
-        self.setBackground = function( values ) {
-        // FUNCTION: setBackground( named array: values ) void
+        self.setBackgroundImage = function( values ) {
+        // FUNCTION: setBackgroundImage( named array: values ) void
             
-            // set text ! exists
-            if( !values['setBackground'] ){
+            // background image ! exists
+            if( !values['backgroundImage'] ){
                 
                 // done
                 return;
                 
             }
-            // set text ! exists
+            // background image ! exists
 
-            // set background
-            textAnimation.setStyle( self.containerId , 'background-image', values['setBackground']['value'] ); 
+            // set style
+            textAnimation.setStyle( self.containerId , 'background-image', values['backgroundImage']['value'] ); 
+            
+        // DONE FUNCTION: setBackgroundImage( named array: values ) void
+        };
+        self.setBackground = function( values ) {
+        // FUNCTION: setBackground( named array: values ) void
+            
+            // background ! exists
+            if( !values['background'] ){
+                
+                // done
+                return;
+                
+            }
+            // background ! exists
+
+            // set style
+            textAnimation.setStyle( self.containerId , 'background', values['background']['value'] ); 
             
         // DONE FUNCTION: setBackground( named array: values ) void
         };
         self.setText = function( values ) {
         // FUNCTION: setText( named array: values ) void
             
-            // set text ! exists
-            if( !values['setText'] ){
+            // text ! exists
+            if( !values['text'] ){
                 
                 // done
                 return;
                 
             }
-            // set text ! exists
+            // text ! exists
+
+            // set text
+            textAnimation.getElementById( self.containerId ).innerHTML = values['text']['value']; 
+                        
+        // DONE FUNCTION: setText( named array: values ) void
+        };
+        self.animateFont = function( values ) {
+        // FUNCTION: animateFont( named array: values ) void
+            
+            // set font
+            self.setFont( values );
+            
+            // set font style
+            self.setFontStyle( values );
+            
+            // animate font weight
+            self.animateFontWeight( values );
+            
+        // DONE FUNCTION: animateFont( named array: values ) void
+        };
+        self.setFont = function( values ) {
+        // FUNCTION: setFont( named array: values ) void
+            
+            // font ! exists
+            if( !values['font'] ){
+                
+                // done
+                return;
+                
+            }
+            // font ! exists
 
             // set style
-            textAnimation.getElementById( self.containerId ).innerHTML = values['setText']['value']; 
+            textAnimation.setStyle( self.containerId , 'font-family', values['font']['value'] ); 
+                        
+        // DONE FUNCTION: setFont( named array: values ) void
+        };
+        self.setFontStyle = function( values ) {
+        // FUNCTION: setFontStyle( named array: values ) void
             
+            // font style ! exists
+            if( !values['fontStyle'] ){
+                
+                // done
+                return;
+                
+            }
+            // font style ! exists
+
+            // set style
+            textAnimation.setStyle( self.containerId , 'font-style', values['fontStyle']['value'] ); 
+                        
+        // DONE FUNCTION: setFont( named array: values ) void
+        };
+        self.animateFontWeight = function( values ) {
+        // FUNCTION: animateFontWeight( named array: values ) void
             
-        // DONE FUNCTION: setText( named array: values ) void
+            // font weight ! exists
+            if( !values['fontWeight'] ){
+                
+                // done
+                return;
+                
+            }
+            // font weight ! exists
+
+            // set style
+            textAnimation.setStyle( self.containerId , 'font-weight', values['fontWeight']['value'] ); 
+                        
+        // DONE FUNCTION: animateFontWeight( named array: values ) void
+        };
+        self.animatePadding = function( values ) {
+        // FUNCTION: animatePadding( named array: values ) void
+            
+            // padding ! exists
+            if( !values['padding'] ){
+                
+                // done
+                return;
+                
+            }
+            // padding ! exists
+
+            // get units
+            let units = self.getUnits( 'padding', values, 'px' );
+                
+            // set style
+            textAnimation.setStyle( self.containerId , 'padding', values['padding']['value'] + units ); 
+                        
+        // DONE FUNCTION: animatePadding( named array: values ) void
+        };
+        self.animateBorder = function( values ) {
+        // FUNCTION: animateBorder( named array: values ) void
+            
+            // set animate border width
+            self.animateBorderWidth( values );
+            
+            // set animate border radius
+            self.animateBorderRadius( values );
+            
+        // DONE FUNCTION: animateBorder( named array: values ) void
+        };
+        self.animateBorderWidth = function( values ) {
+        // FUNCTION: animateBorderWidth( named array: values ) void
+            
+            // border width is set
+            if( !values['borderWidth'] ){
+                
+                // done
+                return;
+                
+            }
+            // border width is set
+
+            // get units
+            let units = self.getUnits( 'borderWidth', values, 'px' );
+                
+            // set style
+            textAnimation.setStyle( self.containerId , 'border-width', values['borderWidth']['value'] + units ); 
+            
+        // DONE FUNCTION: animateBorderRadius( named array: values ) void
+        };
+        self.animateBorderRadius = function( values ) {
+        // FUNCTION: animateBorderRadius( named array: values ) void
+            
+            // border radius is set
+            if( !values['borderRadius'] ){
+                
+                // done
+                return;
+                
+            }
+            // border radius is set
+
+            // get units
+            let units = self.getUnits( 'borderRadius', values, 'px' );
+                
+            // set background
+            textAnimation.setStyle( self.containerId , 'border-radius', values['borderRadius']['value'] + units  ); 
+            
+        // DONE FUNCTION: animateBorderRadius( named array: values ) void
+        };
+        self.getUnits = function( itemId, values, defaultValue ) {
+        // FUNCTION: getUnits( string: itemId, named array: values, string: defaultValue ) string
+            
+            // get units
+            let units = values[itemId]['units'] ?
+                        values[itemId]['units'] :
+                        defaultValue;
+            // get units
+
+            // return result
+            return units;
+
+        // DONE FUNCTION: getUnits( string: itemId, named array: values, string: defaultValue ) string
         };
         self.layoutChange = function( values ) {
         // FUNCTION: layoutChange( named array: values ) void

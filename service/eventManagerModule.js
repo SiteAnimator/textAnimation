@@ -10,7 +10,7 @@
 
                 to the application
 
-    Last revision: 17-10-2022
+    Last revision: 08-11-2022
  
 */    
 
@@ -25,7 +25,7 @@
         // PRIVATE:
 
         // MEMBERS:
-        var self = this;                                    // object
+        let self = this;                                    // object
         self.debugOn = false;                               // boolean
         self.MODULE = 'EventManagerModule';                 // string
         self.events = {};                                   // named array

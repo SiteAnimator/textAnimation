@@ -53,9 +53,6 @@
         self.construct = function() {
         // FUNCTION: construct( void ) void
             
-            // debug
-            self.debug( 'content module construct' );
- 
             // create html
             self.createHtml();
  
@@ -139,6 +136,7 @@
             // create layout
             let layout = {
                 'window'    : {},
+                'parent'    : {},
                 'container' : {}
             };
             // create layout
@@ -146,8 +144,11 @@
             // get window dimensions
             self.getWindowDimensions( layout );
             
-            // set parent dimensions
-            self.setParentDimensions( layout );
+            // get parent dimensions
+            self.getParentDimensions( layout );
+            
+            // set full window dimensions
+            self.setFullWindowDimensions( layout );
 
             // get dimensions
             self.getDimensions( layout );
@@ -184,34 +185,61 @@
 
         // DONE FUNCTION: getWindowDimensions( named array: layout ) void
         };
-        self.setParentDimensions = function( layout ) {
-        // FUNCTION: setParentDimensions( named array: layout ) void
+        self.getParentDimensions = function( layout ) {
+        // FUNCTION: getParentDimensions( named array: layout ) void
+
+            // get parent id
+            let parentId = textAnimation.options.containerId;
+
+            // create dimensions
+            layout['parent']['dimensions'] = {
+                'width'     :   textAnimation.getElementById( parentId ).offsetWidth,
+                'height'    :   textAnimation.getElementById( parentId ).offsetHeight
+            };
+            // create dimensions
+
+        // DONE FUNCTION: getParentDimensions( named array: layout ) void
+        };
+        self.setFullWindowDimensions = function( layout ) {
+        // FUNCTION: setFullWindowDimensions( named array: layout ) void
+
+            // use full window ! set
+            if( !textAnimation.options.useFullWindow ){
+
+                // done
+                return;
+                
+            }
+            // use full window ! set
 
             // get window dimensions
             let windowDimensions = layout['window']['dimensions'];
 
-            // get container id
-            let containerId = textAnimation.options.containerId;
+            // get parent id
+            let parentId = textAnimation.options.containerId;
 
             // set width
-            textAnimation.setStyle( containerId, 'width', windowDimensions['width'] + 'px' );
+            textAnimation.setStyle( parentId, 'width', windowDimensions['width'] + 'px' );
             
             // set height
-            textAnimation.setStyle( containerId, 'height', windowDimensions['height'] + 'px' );
+            textAnimation.setStyle( parentId, 'height', windowDimensions['height'] + 'px' );
 
-        // DONE FUNCTION: setParentDimensions( named array: layout ) void
+        // DONE FUNCTION: setFullWindowDimensions( named array: layout ) void
         };
         self.getDimensions = function( layout ) {
         // FUNCTION: getDimensions( named array: layout ) void
 
-            // get window dimensions
-            let windowDimensions = layout['window']['dimensions'];
+            // get dimensions
+            let dimensions = textAnimation.options.useFullWindow ?
+                             layout['window']['dimensions'] :
+                             layout['parent']['dimensions'];
+            // get dimensions
 
             // calculate height
-            let height = ( windowDimensions['height'] / 100 ) * self.layoutOptions['height'];
+            let height = ( dimensions['height'] / 100 ) * self.layoutOptions['height'];
 
             // calculate width
-            let width = ( windowDimensions['width'] / 100 ) * self.layoutOptions['width'];
+            let width = ( dimensions['width'] / 100 ) * self.layoutOptions['width'];
 
             // set maximum
             width = Math.min( width,
@@ -244,17 +272,20 @@
         self.getPositions = function( layout ) {
         // FUNCTION: getPositions( named array: layout ) void
 
-            // get window dimensions
-            let windowDimensions = layout['window']['dimensions'];
+            // get dimensions
+            let dimensions = textAnimation.options.useFullWindow ?
+                             layout['window']['dimensions'] :
+                             layout['parent']['dimensions'];
+            // get dimensions
 
             // get dimensions
             let containerDimensions = layout['container']['dimensions'];
             
             // calculate top
-            let top = ( windowDimensions['height'] - containerDimensions['height'] ) / 2;
+            let top = ( dimensions['height'] - containerDimensions['height'] ) / 2;
             
             // calculate left
-            let left = ( windowDimensions['width'] - containerDimensions['width'] ) / 2;
+            let left = ( dimensions['width'] - containerDimensions['width'] ) / 2;
             
             // create positions
             let containerPositions = {

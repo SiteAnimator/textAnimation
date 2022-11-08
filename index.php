@@ -10,21 +10,12 @@
     email:      info@siteanimator.nl
     liscence:   GNU GENERAL PUBLIC LICENSE Version 3
 
-    Last revision:  07-11-2022
+    Last revision:  08-11-2022
   
 */
 
 // create version
 $version = '00005';
-
-// add mobile detect
-require_once './php/MobileDetect.php';
-
-// create mobile detect
-$mobileDetect = new MobileDetect();
-
-// is mobile
-$isMobile = $mobileDetect->isMobile();    
 
 ?>
 
@@ -102,11 +93,11 @@ $isMobile = $mobileDetect->isMobile();
     // add version
     textAnimation.version = '<?php echo $version; ?>';
 
-    // create mobile
-    textAnimation.isMobile = <?php echo $isMobile ? 'true' : 'false'; ?>;
-
     // add container id
     textAnimation.options.containerId = 'animationDiv';
+    
+    // use full window
+    textAnimation.options.useFullWindow = false;
     
     // add frame rate
     textAnimation.options.frameRate = 40;
@@ -163,11 +154,12 @@ $isMobile = $mobileDetect->isMobile();
 <script src="./service/getElementModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/eventManagerModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./service/jsonLoaderModule.js<?php echo '?version=' . $version; ?>"></script>
-<script src="./service/animations/playerModule.js<?php echo '?version=' . $version; ?>"></script>
 
 <script src="./ui/buttonModule.js<?php echo '?version=' . $version; ?>"></script>
 
-<script src="./animations/animationsModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./animations/loaderModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./animations/service/playerModule.js<?php echo '?version=' . $version; ?>"></script>
+<script src="./animations/service/effectsModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./animations/text/textModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./animations/text/valuesModule.js<?php echo '?version=' . $version; ?>"></script>
 <script src="./animations/text/animate/animateModule.js<?php echo '?version=' . $version; ?>"></script>

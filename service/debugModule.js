@@ -21,7 +21,7 @@
                     }
                 };
 
-    Last revision: 17-10-2022
+    Last revision: 08-11-2022
  
 */
 
@@ -36,7 +36,7 @@
         // PRIVATE:
         
         // MEMBERS
-        var self = this;                                    // object
+        let self = this;                                    // object
         self.moduleName = 'DebugModule';                    // string
         self.options = options;                             // named array / undefined
         self.on = true;                                     // boolean

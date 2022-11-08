@@ -5,7 +5,7 @@
     function:   plays the animations.
                 Creates and removes elements.
   
-    Last revision: 17-10-2022
+    Last revision: 08-11-2022
  
 */
 
@@ -23,7 +23,7 @@
         // MEMBERS
         var self = this;                                    // object
         self.moduleName = 'ContentAnimationModule';         // string
-        self.debugOn = true;                                // boolean
+        self.debugOn = false;                               // boolean
         self.parentId = parentId;                           // html element id
         self.animations = null;                             // array / null
         self.animationIndex = 0;                            // integer
@@ -37,8 +37,6 @@
         self.construct = function() {
         // FUNCTION: construct( void ) void
             
-            self.debug( 'module construct' );
- 
             // create animations
             self.createAnimations();
  
@@ -46,18 +44,18 @@
             self.createElements();
  
             // load animations
-            self.modules['animations'].load( self.start );
+            self.modules['loader'].load( self.start );
             
         // DONE FUNCTION: construct( void ) void
         };
         self.createAnimations = function() {
         // FUNCTION: createAnimations( void ) void
 
-            // get animations module
-            let animationsModule = textAnimation.animations.animationsModule;
+            // get loader module
+            let loaderModule = textAnimation.animations.loaderModule;
             
-            // create animations module
-            self.modules['animations'] = new animationsModule( );
+            // create loader module
+            self.modules['loader'] = new loaderModule( );
 
         // DONE FUNCTION: createAnimations( void ) void
         };

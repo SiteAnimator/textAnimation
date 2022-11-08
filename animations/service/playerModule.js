@@ -17,23 +17,25 @@
 
                 textAnimation.options.frameRate = 40; // integer                
 
-    Last revision: 17-10-2022
+    Last revision: 08-11-2022
  
 */    
 
 // create module function
 ( function( textAnimation ){
         
-    // create name space
-    textAnimation.service.animations = textAnimation.service.animations ? textAnimation.service.animations : {};
+    // create name spaces
+    textAnimation.animations = textAnimation.animations ? textAnimation.animations : {};
+    textAnimation.animations.service = textAnimation.animations.service ? textAnimation.animations.service : {};
+    // create name spaces
             
     // MODULE: playerModule( void ) named array
-    textAnimation.service.animations.playerModule = function( ) {
+    textAnimation.animations.service.playerModule = function( ) {
         // PRIVATE:
 
         // MEMBERS:
-        var self = this;                                    // object
-        self.debugOn = true;                               // boolean
+        let self = this;                                    // object
+        self.debugOn = false;                               // boolean
         self.MODULE = 'AnimationsPlayerModule';             // string
         self.maximumFrameSpeed = textAnimation.options.frameRate ?
                                  parseInt( textAnimation.options.frameRate ) :

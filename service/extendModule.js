@@ -8,7 +8,7 @@
 
                 to the application
 
-    Last revision: 17-10-2022
+    Last revision: 08-11-2022
 
 */    
 
@@ -23,8 +23,8 @@
         // PRIVATE:
 
         // MEMBERS:
-        var self = this;                                    // object
-        self.debugOn = true;                               // boolean
+        let self = this;                                    // object
+        self.debugOn = false;                               // boolean
         self.MODULE = 'ExtendModule';                       // string
         self.initial = null;                                // array / named array / null
         self.overRide = null;                               // array / named array / null

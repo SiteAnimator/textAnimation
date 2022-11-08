@@ -6,7 +6,7 @@
                 creates service modules
                 handels start after page load
                 
-    Last revision: 17-10-2022
+    Last revision: 08-11-2022
  
 */    
 
@@ -19,7 +19,7 @@
         // PRIVATE:
         
         // MEMBERS
-        var self = this;                        // object
+        let self = this;                        // object
         self.moduleName = 'mainModule';         // string
         self.modules = {};                      // named array
     
@@ -79,10 +79,16 @@
             self.modules.animations = {};
 
             // get player module
-            let playerModule = textAnimation.service.animations.playerModule;
+            let playerModule = textAnimation.animations.service.playerModule;
 
             // create player module
             self.modules.animations.player = new playerModule( );
+
+            // get effects module
+            let effectsModule = textAnimation.animations.service.effectsModule;
+
+            // create effects module
+            self.modules.animations.effects = new effectsModule( );
 
         // DONE FUNCTION: createAnimationServices( void ) void
         };

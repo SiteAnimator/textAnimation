@@ -29,7 +29,7 @@ foreach ( $textArray as $key => $value ) {
         echo '"id" : "move' . $key . '",';  
         echo '"target" : "text' . $key . '",';  
         echo '"startDelay" : 0,';
-        echo '"duration" : 12,';
+        echo '"duration" : 52,';
         echo '"trigger" : {';
             echo '"itemId"      : "landscapeHeight",';
             echo '"at"          : 0,';
@@ -37,6 +37,12 @@ foreach ( $textArray as $key => $value ) {
             echo '"playNext"    : true';
         echo '},';
         echo '"items" : {';
+            echo '"borderColor" : {';
+                echo '"path" : ["blue"]';
+            echo '},';
+            echo '"borderRadius" : {';
+                echo '"path" : [0,5]';
+            echo '},';
     if( isset( $value['color'] ) ){
             echo '"color" : {';
                 echo '"path" : ' . $value['color'] . '';
@@ -50,6 +56,9 @@ foreach ( $textArray as $key => $value ) {
             echo '},';
             echo '"landscapeLeft" : {';
                 echo '"path" : "' . $value['landscapeLeft'] . '"';
+            echo '},';
+            echo '"padding" : {';
+                echo '"path" : "0, 4"';
             echo '}';
         echo '}';
     echo '}';
