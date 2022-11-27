@@ -38,8 +38,8 @@
             'backgroundColor'       :   'transparent',      // css
             'top'                   :   '0px',              // css
             'left'                  :   '0px',              // css
-            'width'                 :   '100%',              // css
-            'height'                :   '100%',              // css
+            'width'                 :   '100%',             // css
+            'height'                :   '100%',             // css
         };                                                  // done named array
         self.layoutOptions = {                              // named array 
             'maximumWidth'          :   1200,               // integer

@@ -15,7 +15,7 @@
 */
 
 // create version
-$version = '00005';
+$version = '00006';
 
 ?>
 
@@ -97,7 +97,7 @@ $version = '00005';
     textAnimation.options.containerId = 'animationDiv';
     
     // use full window
-    textAnimation.options.useFullWindow = false;
+    textAnimation.options.useFullWindow = true;
     
     // add frame rate
     textAnimation.options.frameRate = 40;
@@ -118,14 +118,54 @@ $version = '00005';
     // create animation options
     textAnimation.animationOptions = {
         'files' : [
-            './assets/animations/presentation/intro/showText/changeBackground.php',
-            './assets/animations/presentation/intro/showText/createText.php',
-            './assets/animations/presentation/intro/showText/moveText.php',
-            './assets/animations/presentation/intro/showText/removeText.php'
+            
+            './assets/animations/presentation/intro/welcome/createText.php',
+            './assets/animations/presentation/intro/welcome/removeText.php',
+            
+            './assets/animations/presentation/intro/to/createText.php',
+            './assets/animations/presentation/intro/to/removeText.php',
+            
+            './assets/animations/presentation/intro/textAnimation/createText.php',
+            './assets/animations/presentation/intro/textAnimation/removeText.php',
+            
+            './assets/animations/presentation/intro/aToolTo/create.php',
+            './assets/animations/presentation/intro/aToolTo/remove.php',
+            
+            './assets/animations/presentation/intro/bounce/create.php',
+            './assets/animations/presentation/intro/bounce/remove.php',
+            
+            './assets/animations/presentation/intro/roll/create.php',
+            './assets/animations/presentation/intro/roll/remove.php',
+
+            './assets/animations/presentation/intro/fall/create.php',
+            './assets/animations/presentation/intro/fall/fall.php',
+            './assets/animations/presentation/intro/fall/fall.php',
+            './assets/animations/presentation/intro/fall/remove.php',
+            
+
+            './assets/animations/presentation/intro/wave/wave.php',
+            
+            './assets/animations/presentation/intro/jump/create.php',
+            './assets/animations/presentation/intro/jump/jumpStart.php',
+            './assets/animations/presentation/intro/jump/jump.php',
+            './assets/animations/presentation/intro/jump/remove.php',           
+            
+            './assets/animations/presentation/intro/spiral/create.php',
+
+            './assets/animations/presentation/outro/createdBy/create.php',
+
+            './assets/animations/presentation/outro/siteAnimator/create.php',
+            './assets/animations/presentation/outro/link/create.php',
+            
+            './assets/animations/presentation/outro/createdBy/remove.php',
+            './assets/animations/presentation/outro/siteAnimator/remove.php',
+            './assets/animations/presentation/outro/link/remove.php'
+
+
         ],
         'repeatOptions' : {
             'repeat'    :   'forever',
-            'from'      :   'createT1'
+            'from'      :   'showWelcome'
         }
     };
     // create animation options
