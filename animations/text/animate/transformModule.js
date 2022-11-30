@@ -85,11 +85,11 @@
             // layout ! landscape    
             if( !layout['parent']['landscape'] ){
                 
-                // calculate portret width
-                self.calculateWidth( 'portretWidth', layout, values );
+                // calculate portrait width
+                self.calculateWidth( 'portraitWidth', layout, values );
 
-                // calculate portret height
-                self.calculateHeight( 'portretHeight', layout, values );
+                // calculate portrait height
+                self.calculateHeight( 'portraitHeight', layout, values );
 
             }
             // layout ! landscape    
@@ -184,11 +184,11 @@
             // layout ! landscape    
             if( !layout['parent']['landscape'] ){
                 
-                // calculate portret left
-                self.calculateLeft( 'portretLeft', layout, values );
+                // calculate portrait left
+                self.calculateLeft( 'portraitLeft', layout, values );
 
-                // calculate portret top
-                self.calculateTop( 'portretTop', layout, values );
+                // calculate portrait top
+                self.calculateTop( 'portraitTop', layout, values );
 
             }
             // layout ! landscape    

@@ -49,12 +49,12 @@ foreach ( $textArray as $key => $value ) {
                 echo '"path" : "' . $value['landscapeTop'] . '",';
                 echo '"effect" : "outBack"';
             echo '},';
-            echo '"portretLeft" : {';
-                echo '"path" : "' . $value['portretLeft'] . '",';
+            echo '"portraitLeft" : {';
+                echo '"path" : "' . $value['portraitLeft'] . '",';
                 echo '"effect" : "outBack"';
             echo '},';
-            echo '"portretTop" : {';
-                echo '"path" : "' . $value['portretTop'] . '",';
+            echo '"portraitTop" : {';
+                echo '"path" : "' . $value['portraitTop'] . '",';
                 echo '"effect" : "outBack"';
             echo '}';
         echo '}';

@@ -18,7 +18,7 @@ $list = array(
             'landscapeTop'     =>  '40, -10'
         ),
         'point' => array(
-            'portretTop'        =>  '110, 36',                                 
+            'portraitTop'        =>  '110, 36',                                 
             'rotate'            =>  '0, 20, -20, 0, 2, -2, 0'
         )
     ),
@@ -28,7 +28,7 @@ $list = array(
             'landscapeTop'     =>  '40, -10'
         ),
         'point' => array(
-            'portretTop'        =>  '110, 36',                                 
+            'portraitTop'        =>  '110, 36',                                 
             'rotate'            =>  '0, 20, -20, 0, 2, -2, 0'
         )
     ),
@@ -38,7 +38,7 @@ $list = array(
             'landscapeTop'     =>  '40, -10'
         ),
         'point' => array(
-            'portretTop'        =>  '110, 36',                                 
+            'portraitTop'        =>  '110, 36',                                 
             'rotate'            =>  '0, 20, -20, 0, 2, -2, 0'
         )
     )

@@ -18,10 +18,10 @@ $textArray = array(
         'landscapeHeight'   =>  '20',                                 
         'landscapeLeft'     =>  '110,42',                                 
         'landscapeTop'      =>  '110, 40',                                 
-        'portretWidth'      =>  '0, 10',                                 
-        'portretHeight'     =>  '0, 12',                                 
-        'portretLeft'       =>  '110, 44',                                 
-        'portretTop'        =>  '110, 36',                                 
+        'portraitWidth'      =>  '0, 10',                                 
+        'portraitHeight'     =>  '0, 12',                                 
+        'portraitLeft'       =>  '110, 44',                                 
+        'portraitTop'        =>  '110, 36',                                 
         'rotate'            =>  '0, 20, -20, 0, 2, -2, 0'
     ),
     'o' => array(
@@ -30,10 +30,10 @@ $textArray = array(
         'landscapeHeight'   =>  '20',                                 
         'landscapeLeft'     =>  '-20,52',                                 
         'landscapeTop'      =>  '-10,40',                                 
-        'portretWidth'      =>  '0, 10',                                 
-        'portretHeight'     =>  '0, 12',                                 
-        'portretLeft'       =>  '-20, 44',                                 
-        'portretTop'        =>  '-20, 52',                                 
+        'portraitWidth'      =>  '0, 10',                                 
+        'portraitHeight'     =>  '0, 12',                                 
+        'portraitLeft'       =>  '-20, 44',                                 
+        'portraitTop'        =>  '-20, 52',                                 
         'rotate'            =>  '0, 20, -20, 0, 2, -2, 0'
     )
 );

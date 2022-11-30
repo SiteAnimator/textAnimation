@@ -52,11 +52,11 @@ foreach ( $textArray as $key => $value ) {
             echo '"landscapeTop" : {';
                 echo '"path" : "' . $value['landscapeTop'] . '"';
             echo '},';
-            echo '"portretLeft" : {';
-                echo '"path" : "' . $value['portretLeft'] . '"';
+            echo '"portraitLeft" : {';
+                echo '"path" : "' . $value['portraitLeft'] . '"';
             echo '},';
-            echo '"portretTop" : {';
-                echo '"path" : "' . $value['portretTop'] . '"';
+            echo '"portraitTop" : {';
+                echo '"path" : "' . $value['portraitTop'] . '"';
             echo '}';
         echo '}';
     echo '}';

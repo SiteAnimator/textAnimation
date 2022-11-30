@@ -109,35 +109,35 @@ for( $tile = 0; $tile < $rows * $columns; ){
 
 $landscapeWidth = 100 / $columns;
 $landscapeHeight = 100 / $rows;
-$portretWidth = $landscapeHeight;
-$portretHeight = $landscapeWidth;
+$portraitWidth = $landscapeHeight;
+$portraitHeight = $landscapeWidth;
 
 // create landscape top
 $landscapeTopPath = '';
 $landscapeLeftPath = '';
-$portretTopPath = '';
-$portretLeftPath = '';
+$portraitTopPath = '';
+$portraitLeftPath = '';
 
 // loop over path
 for( $i = 0; $i < count( $path ); $i++ ){
 
     $landscapeTop = $landscapeHeight * ( $path[$i] / $columns );
     $landscapeLeft = $landscapeWidth * ( $path[$i] % $columns );
-    $portretTop = $landscapeWidth * ( $path[$i] / $columns );
-    $portretLeft = $landscapeHeight * ( $path[$i] % $columns );
+    $portraitTop = $landscapeWidth * ( $path[$i] / $columns );
+    $portraitLeft = $landscapeHeight * ( $path[$i] % $columns );
 
     $landscapeTopPath .= $landscapeTop;
     $landscapeLeftPath .= $landscapeLeft;
-    $portretTopPath .= $portretTop;
-    $portretLeftPath .= $portretLeft;
+    $portraitTopPath .= $portraitTop;
+    $portraitLeftPath .= $portraitLeft;
 
     // ! last path value
     if( $i < count( $path ) - 1 ){
         
         $landscapeTopPath .= ',';
         $landscapeLeftPath .= ',';
-        $portretTopPath .= ',';
-        $portretLeftPath .= ',';
+        $portraitTopPath .= ',';
+        $portraitLeftPath .= ',';
         
     }
     // ! last path value
@@ -196,17 +196,17 @@ for( $i = 0; $i < count( $textArray ); $i++ ){
             echo '"landscapeTop" : {';
                 echo '"path" : "' . $landscapeTopPath . '"';
             echo '},';
-            echo '"portretWidth" : {';
-                echo '"path" : "' . $portretWidth . '"';
+            echo '"portraitWidth" : {';
+                echo '"path" : "' . $portraitWidth . '"';
             echo '},';
-            echo '"portretHeight" : {';
-                echo '"path" : "' . $portretHeight . '"';
+            echo '"portraitHeight" : {';
+                echo '"path" : "' . $portraitHeight . '"';
             echo '},';
-            echo '"portretLeft" : {';
-                echo '"path" : "' . $portretLeftPath . '"';
+            echo '"portraitLeft" : {';
+                echo '"path" : "' . $portraitLeftPath . '"';
             echo '},';
-            echo '"portretTop" : {';
-                echo '"path" : "' . $portretTopPath . '"';
+            echo '"portraitTop" : {';
+                echo '"path" : "' . $portraitTopPath . '"';
             echo '}';
         echo '}';
     echo '}';

@@ -18,10 +18,10 @@ $textArray = array(
         'landscapeTop'      =>  '50,37.5',                                 
         'landscapeWidth'    =>  '0,25',                                 
         'landscapeHeight'   =>  '0,25',                                 
-        'portretWidth'      =>  '0,25',                                 
-        'portretHeight'     =>  '0,25',                                 
-        'portretLeft'       =>  '50,37.5',                                 
-        'portretTop'        =>  '12.5,0'
+        'portraitWidth'      =>  '0,25',                                 
+        'portraitHeight'     =>  '0,25',                                 
+        'portraitLeft'       =>  '50,37.5',                                 
+        'portraitTop'        =>  '12.5,0'
     ),
     'A' => array(
         'text'              => 'A',                                 
@@ -29,10 +29,10 @@ $textArray = array(
         'landscapeTop'      =>  '50,37.5',                                 
         'landscapeWidth'    =>  '0,25',                                 
         'landscapeHeight'   =>  '0,25',                                 
-        'portretWidth'      =>  '0,25',                                 
-        'portretHeight'     =>  '0,25',                                 
-        'portretLeft'       =>  '50,37.5',                                 
-        'portretTop'        =>  '37.5,25'
+        'portraitWidth'      =>  '0,25',                                 
+        'portraitHeight'     =>  '0,25',                                 
+        'portraitLeft'       =>  '50,37.5',                                 
+        'portraitTop'        =>  '37.5,25'
     ),
     'V' => array(
         'text'              => 'V',                                 
@@ -40,10 +40,10 @@ $textArray = array(
         'landscapeTop'      =>  '50,37.5',                                 
         'landscapeWidth'    =>  '0,25',                                 
         'landscapeHeight'   =>  '0,25',                                 
-        'portretWidth'      =>  '0,25',                                 
-        'portretHeight'     =>  '0,25',                                 
-        'portretLeft'       =>  '50,37.5',                                 
-        'portretTop'        =>  '62.5,50'
+        'portraitWidth'      =>  '0,25',                                 
+        'portraitHeight'     =>  '0,25',                                 
+        'portraitLeft'       =>  '50,37.5',                                 
+        'portraitTop'        =>  '62.5,50'
     ),
     'E' => array(
         'text'              => 'E',                                 
@@ -51,10 +51,10 @@ $textArray = array(
         'landscapeTop'      =>  '50,37.5',                                 
         'landscapeWidth'    =>  '0,25',                                 
         'landscapeHeight'   =>  '0,25',                                 
-        'portretWidth'      =>  '0,25',                                 
-        'portretHeight'     =>  '0,25',                                 
-        'portretLeft'       =>  '50,37.5',                                 
-        'portretTop'        =>  '87.5,75'
+        'portraitWidth'      =>  '0,25',                                 
+        'portraitHeight'     =>  '0,25',                                 
+        'portraitLeft'       =>  '50,37.5',                                 
+        'portraitTop'        =>  '87.5,75'
     )
 );
 

@@ -24,8 +24,8 @@ $columns = 7;
 
 $landscapeWidth = 100 / $columns;
 $landscapeHeight = 100 / $rows;
-$portretWidth = $landscapeHeight;
-$portretHeight = $landscapeWidth;
+$portraitWidth = $landscapeHeight;
+$portraitHeight = $landscapeWidth;
 
 // open array
 echo "[";
@@ -38,8 +38,8 @@ for( $column = 0; $column <  $columns; $column++ ) {
 
         $landscapeTop = $row * $landscapeHeight;
         $landscapeLeft = $column * $landscapeWidth;
-        $portretTop = $landscapeLeft;
-        $portretLeft = $landscapeTop;
+        $portraitTop = $landscapeLeft;
+        $portraitLeft = $landscapeTop;
         
         // create text item
         echo '{';
@@ -83,17 +83,17 @@ for( $column = 0; $column <  $columns; $column++ ) {
                 echo '"landscapeTop" : {';
                     echo '"path" : "' . $landscapeTop . '"';
                 echo '},';
-                echo '"portretWidth" : {';
-                    echo '"path" : "' . $portretWidth . '"';
+                echo '"portraitWidth" : {';
+                    echo '"path" : "' . $portraitWidth . '"';
                 echo '},';
-                echo '"portretHeight" : {';
-                    echo '"path" : "' . $portretHeight . '"';
+                echo '"portraitHeight" : {';
+                    echo '"path" : "' . $portraitHeight . '"';
                 echo '},';
-                echo '"portretLeft" : {';
-                    echo '"path" : "' . $portretLeft . '"';
+                echo '"portraitLeft" : {';
+                    echo '"path" : "' . $portraitLeft . '"';
                 echo '},';
-                echo '"portretTop" : {';
-                    echo '"path" : "' . $portretTop . '"';
+                echo '"portraitTop" : {';
+                    echo '"path" : "' . $portraitTop . '"';
                 echo '},';
                 echo '"rotate" : {';
                     echo '"path" : "0,1"';
