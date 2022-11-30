@@ -32,48 +32,48 @@ In the index file you can find:
 
 example of an animation:
 
-{                                               
-    'id'                    :   'animation1',           // id of the animation ( used in the repeat ).
-    'target'                :   'animation1',           // target element of the animation ( used to identify the HTML element ).
-    'createElement'         :   true,                   // creates an html element       
-    'removeElement'         :   true,                   // removes an html element       
-    'text'                  :   'Hello',                // Sets the text of the element
-    'elementOptions' : {                                // initial styling of the element
-        'color'             :   'blue',                 // same as css but in cammel-case
-        'fontSize'          :   '66px',                 // same as css but in cammel-case
-        'padding'           :   '25px 23px 23px 23px',  // same as css but in cammel-case
-        'borderRadius'      :   '50%',                  // same as css but in cammel-case
-        'backgroundColor'   :   'orange'                // same as css but in cammel-case
-    },
-    'id'                    :   'showHello',            // id of this animation part
-    'target'                :   'hello',                // a target can play one animation
-                                                        // at a time    
-    'trigger' : {                                       // triggers an event
-        'itemId'            :   'opacity',              // item that triggers the event
-        'at'                :   0,                      // index in path that triggers
-        'show'              :   true,                   // show the element
-        'playNext'          :   true,                   // play the next animation
-    },                                          
-    'startDelay'            :   1,                      // delay in frames
-    'duration'              :   35,                     // duration of the animation in frames
-    'items' : {                                         // changeable options of the animation. 
-                                                        // An item is for example 'left', ''right', 'rotate', 'colorR'.
-        'opacity' : {                                   // an item
-            'path'          :   '0,1'                   // the path will determine the values of the item in the animation.
-                                                        // When the path is an array of floats then steps in between the path are calculated.
-                                                        // When the path is an array of strings then steps of the path are used literally.
-                                                        // When the path is an array of 2 floats then an effect can be added.
-        },                                       
-        'landScapeLeft' : {                             // an item
-            'path'          :   '-10,1',                // path to animate
-            'effect'        :   'inOut'                 // the effect to animate   
-        },                                       
-        'rotate' : {                                    // an item
-            'path'          :   '-10,10,0,-10,10,0',    // path to animate
-            'units'         :   'deg'                   // units of the rotation
-        }                                       
-    }                                           
-};
+    {                                               
+        'id'                    :   'animation1',           // id of the animation ( used in the repeat ).
+        'target'                :   'animation1',           // target element of the animation ( used to identify the HTML element ).
+        'createElement'         :   true,                   // creates an html element       
+        'removeElement'         :   true,                   // removes an html element       
+        'text'                  :   'Hello',                // Sets the text of the element
+        'elementOptions' : {                                // initial styling of the element
+            'color'             :   'blue',                 // same as css but in cammel-case
+            'fontSize'          :   '66px',                 // same as css but in cammel-case
+            'padding'           :   '25px 23px 23px 23px',  // same as css but in cammel-case
+            'borderRadius'      :   '50%',                  // same as css but in cammel-case
+            'backgroundColor'   :   'orange'                // same as css but in cammel-case
+        },
+        'id'                    :   'showHello',            // id of this animation part
+        'target'                :   'hello',                // a target can play one animation
+                                                            // at a time    
+        'trigger' : {                                       // triggers an event
+            'itemId'            :   'opacity',              // item that triggers the event
+            'at'                :   0,                      // index in path that triggers
+            'show'              :   true,                   // show the element
+            'playNext'          :   true,                   // play the next animation
+        },                                          
+        'startDelay'            :   1,                      // delay in frames
+        'duration'              :   35,                     // duration of the animation in frames
+        'items' : {                                         // changeable options of the animation. 
+                                                            // An item is for example 'left', ''right', 'rotate', 'colorR'.
+            'opacity' : {                                   // an item
+                'path'          :   '0,1'                   // the path will determine the values of the item in the animation.
+                                                            // When the path is an array of floats then steps in between the path are calculated.
+                                                            // When the path is an array of strings then steps of the path are used literally.
+                                                            // When the path is an array of 2 floats then an effect can be added.
+            },                                       
+            'landScapeLeft' : {                             // an item
+                'path'          :   '-10,1',                // path to animate
+                'effect'        :   'inOut'                 // the effect to animate   
+            },                                       
+            'rotate' : {                                    // an item
+                'path'          :   '-10,10,0,-10,10,0',    // path to animate
+                'units'         :   'deg'                   // units of the rotation
+            }                                       
+        }                                           
+    };
 
 The items that can be used:
 
